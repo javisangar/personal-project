@@ -20,6 +20,7 @@ import { PostComponent } from './pages/application/post/post.component';
 import { RouteComponent } from './pages/application/route/route.component';
 import { SaleComponent } from './pages/application/sale/sale.component';
 import { PostService } from './services/posts.services';
+import { FormPostComponent } from './shared/form-post/form-post.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { PostService } from './services/posts.services';
     LoginFormComponent,
     PostComponent,
     RouteComponent,
-    SaleComponent
+    SaleComponent,
+    FormPostComponent
   ],
   imports: [
     BrowserModule,
