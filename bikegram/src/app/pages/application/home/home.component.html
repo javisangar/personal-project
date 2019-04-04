@@ -1,6 +1,6 @@
 <app-header></app-header>
 
-<article class="container">
+<article class="container ">
 
   <div class="content-post">
 
@@ -11,6 +11,7 @@
     </div>
 
     <div class="post__form" [ngClass]="{'post__form-open': postFormOpen }">
+
       <h2>New Post</h2>
       <form>
         <label for="image">
@@ -19,17 +20,19 @@
         <mat-form-field>
           <input type="text" matInput placeholder="Enter your post content">
         </mat-form-field>
-       <div class="post__form-btn">
+        <div class="post__form-btn">
           <button (click)=createPost() mat-raised-button color="primary">Create Post</button>
           <button (click)="setPostFormStatus(false)" mat-raised-button color="warn">Close</button>
-       </div>
+        </div>
       </form>
+
+
     </div>
 
     <div class="route__form" [ngClass]="{'route__form-open': routeFormOpen }">
+     
       <h2>New Route</h2>
       <form>
-
         <mat-form-field>
           <input type="text" matInput placeholder="Enter route description">
         </mat-form-field>
@@ -38,6 +41,7 @@
           <button (click)="setRouterFormStatus(false)" mat-raised-button color="warn">Close</button>
         </div>
       </form>
+     
     </div>
 
     <div class="sale__form" [ngClass]="{'sale__form-open': saleFormOpen }">

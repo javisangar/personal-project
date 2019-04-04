@@ -1,0 +1,14 @@
+<div class="route__form" [ngClass]="{'route__form-open': routeFormOpen }">
+
+  <h2>New Route</h2>
+  <form>
+    <mat-form-field>
+      <input type="text" matInput placeholder="Enter route description">
+    </mat-form-field>
+    <div class="route__form-btn">
+      <button (click)=createRoute() mat-raised-button color="primary">Create Route</button>
+      <button (click)="setRouterFormStatus(false)" mat-raised-button color="warn">Close</button>
+    </div>
+  </form>
+
+</div>

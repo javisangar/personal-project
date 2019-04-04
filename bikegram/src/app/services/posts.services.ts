@@ -25,6 +25,5 @@ export class PostService {
     this.posts.push(post)
   }
 
-
 }
 

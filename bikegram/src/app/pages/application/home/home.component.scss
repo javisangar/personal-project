@@ -3,6 +3,10 @@
 .container {
   background-color: $body-home-color;
 
+  &-open-form{
+    overflow: hidden;
+  }
+
   a {
     text-decoration: none;
   }

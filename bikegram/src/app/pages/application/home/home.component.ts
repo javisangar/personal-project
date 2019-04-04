@@ -17,19 +17,19 @@ export class HomeComponent implements OnInit {
   routes: Array<any>;
   sales: Array<any>;
 
- /* 
- sales = [{
-    id: Date.now(),
-    userImg: '',
-    title: 'Javier Sánchez',
-    subtitle: 'Madrid',
-    brand: 'Honda CBR 600',
-    kilometers: '12.500 km',
-    image: '../../../../assets/images/honda1.jpg',
-    price: '4.200€',
-    text: 'Vendo Honda CBR 600 del 2009 con pocos kilómetros, revisión recién hecha'
-  }];
-  */
+  /* 
+  sales = [{
+     id: Date.now(),
+     userImg: '',
+     title: 'Javier Sánchez',
+     subtitle: 'Madrid',
+     brand: 'Honda CBR 600',
+     kilometers: '12.500 km',
+     image: '../../../../assets/images/honda1.jpg',
+     price: '4.200€',
+     text: 'Vendo Honda CBR 600 del 2009 con pocos kilómetros, revisión recién hecha'
+   }];
+   */
 
   constructor(private postService: PostService, private routeService: RouteService, private saleService: SaleService) { }
 
@@ -57,13 +57,13 @@ export class HomeComponent implements OnInit {
     this.posts = this.postService.getPosts();
   }
 
-  getRoutes(){
-    
+  getRoutes() {
+
     this.routes = this.routeService.getRoutes();
   }
 
-  getSales(){
-    
+  getSales() {
+
     this.sales = this.saleService.getSales();
   }
 
@@ -96,14 +96,14 @@ export class HomeComponent implements OnInit {
   createSale() {
     const sale = {
       id: Date.now(),
-            userImg: '',
-            title: 'Javier Sánchez',
-            subtitle: 'Madrid',
-            brand: 'Honda CBR 600',
-            kilometers: '12.500 km',
-            image: '../../../../assets/images/honda1.jpg',
-            price: '4.200€',
-            text: 'Vendo Honda CBR 600 del 2009 con pocos kilómetros, revisión recién hecha'
+      userImg: '',
+      title: 'Javier Sánchez',
+      subtitle: 'Madrid',
+      brand: 'Honda CBR 600',
+      kilometers: '12.500 km',
+      image: '../../../../assets/images/honda1.jpg',
+      price: '4.200€',
+      text: 'Vendo Honda CBR 600 del 2009 con pocos kilómetros, revisión recién hecha'
     }
     this.saleService.addSale(sale)
     this.getSales()
