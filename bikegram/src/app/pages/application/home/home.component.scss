@@ -1,0 +1,305 @@
+@import "../../../../assets/scss/colors";
+
+.container {
+  background-color: $body-home-color;
+
+  a {
+    text-decoration: none;
+  }
+
+  .content-post {
+    border: 1px solid $header-bg-color;
+    padding-left: 8px;
+    padding-right: 8px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+
+    .post-card,
+    .route-card,
+    .sale-card {
+      max-width: 400px;
+      margin-bottom: 8px;
+    }
+
+    .header-image {
+      background-image: url('../../../../assets/images/profile-photo.jpg');
+      background-size: cover;
+    }
+
+  }
+
+  .searchTool {
+    input {
+      border: 1px solid $border-radius-color;
+      border-radius: 3px;
+      width: 95px;
+      margin-top: 22px;
+      margin-left: 5px;
+    }
+
+    button {
+      border-radius: 3px;
+      width: 16px;
+      height: 19px;
+      padding-left: 3px;
+    }
+  }
+
+  .userTools {
+    margin-top: 66px;
+    margin-bottom: 20px;
+    margin-right: 2px;
+    display: flex;
+    justify-content: center;
+
+
+
+    button {
+      width: 100px;
+      height: 50px;
+      border: 0;
+      border-radius: 3px;
+      color: $font-bg-color;
+      background-color: $btn-bg-color;
+      margin-top: 1px;
+      margin-left: 2px;
+
+    }
+
+  }
+
+
+  .post__form {
+    position: fixed;
+    z-index: 30;
+    padding: 10px 0 10px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    background-color: $post__form-bg-color;
+    width: 100%;
+    height: 100vh;
+    color: #fff;
+    margin-top: -99px;
+    top: -99999999px;
+
+    &-open {
+      top: 130px;
+      left: 0px;
+    }
+
+    h2 {
+      margin-bottom: 10px;
+      margin-left: 36%;
+      font-size: 19px;
+      font-weight: bold;
+
+    }
+
+    .custom-file-input {
+      margin-bottom: 10px;
+      color: transparent;
+    }
+
+    .custom-file-input::-webkit-file-upload-button {
+      visibility: hidden;
+    }
+
+    .custom-file-input::before {
+      content: 'Upload Image';
+      color: black;
+      display: inline-block;
+      background: -webkit-linear-gradient(top, #fff, #e3e3e3);
+      border-radius: 3px;
+      padding: 5px 8px;
+      outline: none;
+      white-space: nowrap;
+      -webkit-user-select: none;
+      cursor: pointer;
+      text-shadow: 1px 1px #fff;
+      font-weight: 700;
+      font-size: 10pt;
+    }
+
+    .custom-file-input:hover::before {
+      border-color: black;
+    }
+
+    .custom-file-input:active {
+      outline: 0;
+    }
+
+    .custom-file-input:active::before {
+      background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+    }
+
+    .post__form-input-text {
+      height: 80px;
+      width: 60%;
+      border: 0;
+      border-radius: 3px;
+    }
+
+    .post__form-btn {
+      border: 0;
+      border-radius: 3px;
+      background-color: #fff;
+      margin-top: 5px;
+      margin-left: 5px;
+    }
+  }
+
+  .route__form {
+    position: fixed;
+    z-index: 25;
+    padding: 10px 0 10px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    background-color: $post__form-bg-color;
+    width: 100%;
+    height: 100vh;
+    color: #fff;
+    margin-top: -99px;
+    top: -99999999px;
+
+    &-open {
+      top: 130px;
+      left: 0px;
+    }
+
+    h2 {
+      margin-bottom: 10px;
+      margin-left: 36%;
+      font-size: 19px;
+      font-weight: bold;
+
+    }
+
+    .route__form-input-text {
+      width: 60%;
+      height: 100px;
+      border: 0;
+      border-radius: 3px;
+    }
+
+    .route__form-btn {
+      border: 0;
+      border-radius: 3px;
+      background-color: #fff;
+      margin-top: 5px;
+      margin-left: 5px;
+    }
+  }
+
+  .sale__form {
+    position: fixed;
+    z-index: 20;
+    padding: 10px 0 10px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    background-color: $post__form-bg-color;
+    width: 100%;
+    height: 100vh;
+    color: #fff;
+    margin-top: -99px;
+    top: -99999999px;
+
+    &-open {
+      top: 130px;
+      left: 0px;
+    }
+
+    input {
+      margin-bottom: 5px;
+    }
+
+    h2 {
+      margin-bottom: 10px;
+      margin-left: 36%;
+      font-size: 19px;
+      font-weight: bold;
+    }
+
+    .custom-file-input {
+      margin-bottom: 10px;
+      color: transparent;
+    }
+
+    .custom-file-input::-webkit-file-upload-button {
+      visibility: hidden;
+    }
+
+    .custom-file-input::before {
+      content: 'Upload Image';
+      color: black;
+      display: inline-block;
+      background: -webkit-linear-gradient(top, #fff, #e3e3e3);
+      border-radius: 3px;
+      padding: 5px 8px;
+      outline: none;
+      white-space: nowrap;
+      -webkit-user-select: none;
+      cursor: pointer;
+      text-shadow: 1px 1px #fff;
+      font-weight: 700;
+      font-size: 10pt;
+    }
+
+    .custom-file-input:hover::before {
+      border-color: black;
+    }
+
+    .custom-file-input:active {
+      outline: 0;
+    }
+
+    .custom-file-input:active::before {
+      background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+    }
+
+
+    .sale__form-input-brand {
+      border: 0;
+      border-radius: 3px;
+    }
+
+    .sale__form-input-text {
+      width: 60%;
+      height: 80px;
+      border: 0;
+      border-radius: 3px;
+      margin-bottom: 5px;
+    }
+
+    .sale__form-input-number {
+      border: 0;
+      border-radius: 3px;
+      margin-right: 12px;
+    }
+
+    .sale__form-input-kilometer {
+      border: 0;
+      border-radius: 3px;
+      margin-right: 12px;
+      width: 116px;
+      margin-left: 10px;
+
+    }
+
+    .sale__form-btn {
+      border: 0;
+      border-radius: 3px;
+      background-color: #fff;
+      margin-top: 5px;
+      margin-left: 5px;
+    }
+  }
+
+}

@@ -1,0 +1,30 @@
+@import "../../../../assets/scss/colors";
+
+.container {
+  background-color: $body-home-color;
+  a{
+    text-decoration: none;
+
+  }
+
+  .content-post {
+    border: 1px solid $header-bg-color;
+    padding-left: 8px;
+    padding-right: 8px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+
+    .post-card {
+      max-width: 400px;
+      margin-bottom: 8px;
+      margin-top: 8%;
+    }
+
+    .header-image {
+      background-image: url('../../../../assets/images/profile-photo.jpg');
+      background-size: cover;
+    }
+  }
+}

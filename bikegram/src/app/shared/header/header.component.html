@@ -1,0 +1,19 @@
+<div class="header">
+  <div class="logo">
+    <span><a [routerLink]="['/home']">BikeGram</a></span>
+  </div>
+
+  <div class="userInfo">
+    <img src="../../../assets/images/profile-photo.jpg" width="30px" height="30px" alt="">
+    <nav>
+      <ul class="dropdownUser">
+        <li><button>Me ▼</button>
+          <ul>
+            <li><a [routerLink]="['/profile']">My profile</a></li>
+            <li><a [routerLink]="['/login']">Sign off</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>

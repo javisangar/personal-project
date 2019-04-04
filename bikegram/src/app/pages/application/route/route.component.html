@@ -1,0 +1,25 @@
+<article class="container">
+
+    <div class="content-post">
+  
+      <mat-card class="route-card" *ngFor="let route of routes">
+        <mat-card-header>
+          <div mat-card-avatar class="header-image"></div>
+          <mat-card-title>{{route.title}}</mat-card-title>
+          <mat-card-subtitle>{{route.subtitle}}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image [src]="route.image">
+        <mat-card-content>
+          <p>
+            {{route.text}}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-stroked-button color="primary"><a routerLink="/back">Return</a></button>
+        </mat-card-actions>
+      </mat-card>
+  
+    </div>
+  
+  </article>
+  
