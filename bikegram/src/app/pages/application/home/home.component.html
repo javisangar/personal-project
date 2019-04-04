@@ -16,78 +16,61 @@
         <label for="image">
           <input class="custom-file-input" type="file">
         </label>
-        <label for="post">
-          <input class="post__form-input-text" type="text" placeholder="Enter your post content..." > 
-        </label>
-        <button class="post__form-btn" (click)=createPost() type="button">Create Post</button>
-        <button class="post__form-btn" (click)="setPostFormStatus(false)" type="button">Cerrar</button>
-
+        <mat-form-field>
+          <input type="text" matInput placeholder="Enter your post content">
+        </mat-form-field>
+       <div class="post__form-btn">
+          <button (click)=createPost() mat-raised-button color="primary">Create Post</button>
+          <button (click)="setPostFormStatus(false)" mat-raised-button color="warn">Close</button>
+       </div>
       </form>
     </div>
 
     <div class="route__form" [ngClass]="{'route__form-open': routeFormOpen }">
       <h2>New Route</h2>
-      <form action="">
-        <label for="route">
-          <input type="text" class="route__form-input-text" placeholder="Enter your route description">
-        </label>
-        <button class="route__form-btn" type="button">Create Route</button>
-        <button class="route__form-btn" (click)="setRouterFormStatus(false)" type="button">Cerrar</button>
+      <form>
+
+        <mat-form-field>
+          <input type="text" matInput placeholder="Enter route description">
+        </mat-form-field>
+        <div class="route__form-btn">
+          <button (click)=createRoute() mat-raised-button color="primary">Create Route</button>
+          <button (click)="setRouterFormStatus(false)" mat-raised-button color="warn">Close</button>
+        </div>
       </form>
     </div>
 
     <div class="sale__form" [ngClass]="{'sale__form-open': saleFormOpen }">
 
       <h2>New Sale</h2>
-      <form action="">
+      <form>
 
         <label for="image">
-          Upload article images
           <input class="custom-file-input" type="file">
         </label>
 
-        <label for="">
-          <input type="text" class="sale__form-input-brand" placeholder="Brand and Model">
-        </label>
+        <mat-form-field>
+          <input type="text" matInput placeholder="Brand & Model">
+        </mat-form-field>
 
-        <label for="kilometer">
-          <input type="number" class="sale__form-input-kilometer" placeholder="kilometers">
-        </label>
+        <mat-form-field>
+          <input type="number" matInput placeholder="Kilometers">
+        </mat-form-field>
 
-        <label for="price">
-          <input type="number" class="sale__form-input-number" placeholder="Enter price in €">
-        </label>
+        <mat-form-field>
+          <input type="number" matInput placeholder="Price in €">
+        </mat-form-field>
 
-        <label for="place">
-          <select name="place">
-            <option value="coruna">Place</option>
-            <option value="coruna">A Coruña</option>
-            <option value="alaba">Álaba</option>
-            <option value="albacete">Albacete</option>
-            <option value="alicante">Alicante</option>
-            <option value="almeria">Almeria</option>
-            <option value="asturias">Asturias</option>
-            <option value="avila">Ávila</option>
-            <option value="badajoz">Badajoz</option>
-            <option value="baleares">Baleares</option>
-            <option value="barcelona">Barcelona</option>
-            <option value="burgos">Burgos</option>
-            <option value="caceres">Cáceres</option>
-            <option value="cadiz">Cádiz</option>
+        <mat-form-field>
+          <input type="text" matInput placeholder="Sale description">
+        </mat-form-field>
 
-          </select>
-        </label>
-
-        <label for="description">
-          <input type="text" class="sale__form-input-text" placeholder="Sale description">
-        </label>
-
-        <button class="sale__form-btn" type="button">Create Sale</button>
-        <button class="sale__form-btn" (click)="setSaleFormStatus(false)" type="button">Cerrar</button>
-
+        <div class="sale__form-btn">
+          <button type="button" (click)=createSale() mat-raised-button color="primary">Create Sale</button>
+          <button mat-raised-button (click)="setSaleFormStatus(false)" type="button" color="warn">Close</button>
+        </div>
       </form>
     </div>
-
 
     <mat-card class="post-card" *ngFor="let post of posts">
       <mat-card-header>
@@ -104,6 +87,7 @@
       <mat-card-actions>
         <button mat-stroked-button color="primary"><a routerLink="/post/{{post.id}}">More Info</a></button>
         <button mat-button>Edit</button>
+        <button mat-button color="warn">Delete</button>
       </mat-card-actions>
     </mat-card>
 
@@ -124,6 +108,7 @@
       <mat-card-actions>
         <button mat-stroked-button color="primary"><a routerLink="/route/{{route.id}}">More Info</a></button>
         <button mat-button>Edit</button>
+        <button mat-button color="warn">Delete</button>
       </mat-card-actions>
     </mat-card>
 
@@ -146,6 +131,7 @@
       <mat-card-actions>
         <button mat-stroked-button color="primary"><a routerLink="/sale/{{sale.id}}">More Info</a></button>
         <button mat-button>Edit</button>
+        <button mat-button color="warn">Delete</button>
       </mat-card-actions>
     </mat-card>
 

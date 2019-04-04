@@ -14,13 +14,15 @@ import { PagesComponent } from './pages/pages.component';
 import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatButtonModule, MatInputModule, MatCardModule } from '@angular/material';
+import { MatButtonModule, MatInputModule, MatCardModule, MatSelectModule } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { PostComponent } from './pages/application/post/post.component';
 import { RouteComponent } from './pages/application/route/route.component';
 import { SaleComponent } from './pages/application/sale/sale.component';
 import { PostService } from './services/posts.services';
 import { FormPostComponent } from './shared/form-post/form-post.component';
+import { RouteService } from './services/routes.services';
+import { SaleService } from './services/sales.service';
 
 
 @NgModule({
@@ -38,6 +40,7 @@ import { FormPostComponent } from './shared/form-post/form-post.component';
     RouteComponent,
     SaleComponent,
     FormPostComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -48,10 +51,11 @@ import { FormPostComponent } from './shared/form-post/form-post.component';
     MatButtonModule,
     MatInputModule,
     BrowserAnimationsModule,
-    MatCardModule
+    MatCardModule,
+    MatSelectModule
 
   ],
-  providers: [PostService],
+  providers: [PostService, RouteService, SaleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

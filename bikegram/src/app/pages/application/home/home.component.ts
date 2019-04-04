@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+
 import { PostService } from 'src/app/services/posts.services';
+import { RouteService } from 'src/app/services/routes.services';
+import { SaleService } from 'src/app/services/sales.service';
 
 @Component({
   selector: 'app-home',
@@ -11,18 +14,13 @@ export class HomeComponent implements OnInit {
   routeFormOpen = false;
   saleFormOpen = false;
   posts: Array<any>;
+  routes: Array<any>;
+  sales: Array<any>;
 
-  routes = [{
+ /* 
+ sales = [{
     id: Date.now(),
-    title: 'Javier Sánchez',
-    subtitle: 'Madrid',
-    image: '../../../../assets/images/map.jpg',
-    text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
-  }];
-  
-  sales = [{
-    id: Date.now(),
-    userImg:'',
+    userImg: '',
     title: 'Javier Sánchez',
     subtitle: 'Madrid',
     brand: 'Honda CBR 600',
@@ -31,13 +29,17 @@ export class HomeComponent implements OnInit {
     price: '4.200€',
     text: 'Vendo Honda CBR 600 del 2009 con pocos kilómetros, revisión recién hecha'
   }];
+  */
 
-
-  constructor(private postService: PostService) { }
+  constructor(private postService: PostService, private routeService: RouteService, private saleService: SaleService) { }
 
   ngOnInit() {
-    this.getPosts()
+    this.getPosts();
+    this.getRoutes();
+    this.getSales();
+
   }
+
   setPostFormStatus(open) {
     this.postFormOpen = open
   }
@@ -52,12 +54,23 @@ export class HomeComponent implements OnInit {
     //  this.posts = posts
     //})
 
-    this.posts = this.postService.getPosts()
+    this.posts = this.postService.getPosts();
   }
+
+  getRoutes(){
+    
+    this.routes = this.routeService.getRoutes();
+  }
+
+  getSales(){
+    
+    this.sales = this.saleService.getSales();
+  }
+
   createPost() {
     const post = {
       id: Date.now(),
-      title: 'Javi',
+      title: 'Javier Sánchez',
       subtitle: 'Madrid',
       image: '../../../../assets/images/ducati.jpg',
       text: 'asfafdafdafda'
@@ -65,5 +78,35 @@ export class HomeComponent implements OnInit {
     this.postService.addPost(post)
     this.getPosts()
     this.setPostFormStatus(false)
+  }
+
+  createRoute() {
+    const route = {
+      id: Date.now(),
+      title: 'Javier Sánchez',
+      subtitle: 'Madrid',
+      image: '../../../../assets/images/map.jpg',
+      text: 'zzzzzzzzzz'
+    }
+    this.routeService.addRoute(route)
+    this.getRoutes()
+    this.setRouterFormStatus(false)
+  }
+
+  createSale() {
+    const sale = {
+      id: Date.now(),
+            userImg: '',
+            title: 'Javier Sánchez',
+            subtitle: 'Madrid',
+            brand: 'Honda CBR 600',
+            kilometers: '12.500 km',
+            image: '../../../../assets/images/honda1.jpg',
+            price: '4.200€',
+            text: 'Vendo Honda CBR 600 del 2009 con pocos kilómetros, revisión recién hecha'
+    }
+    this.saleService.addSale(sale)
+    this.getSales()
+    this.setSaleFormStatus(false)
   }
 }

@@ -1,27 +1,29 @@
 import {
     Injectable
-  } from "@angular/core";
-  
-  @Injectable({
+} from "@angular/core";
+
+@Injectable({
     providedIn: 'root'
-  })
-  export class RouteService {
-    posts: Array<any>;
+})
+export class RouteService {
+    routes: Array<any>;
+
 
     constructor() {
         this.routes = [{
             id: Date.now(),
             title: 'Javier Sánchez',
             subtitle: 'Madrid',
-            image: '../../../../assets/images/ducati.jpg',
+            image: '../../../../assets/images/map.jpg',
             text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
-          }]
+        }]
     }
-    getPosts() {
-        return this.posts;
+    getRoutes() {
+        return this.routes;
     }
-    addPost(post) {
-        this.posts.push(post)
+    addRoute(route) {
+        this.routes.push(route)
     }
-  }
-  
+
+}
+

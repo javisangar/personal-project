@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class RouteComponent implements OnInit {
   routes = [{
     id: Date.now(),
-    title: 'Alvaro Simarro',
+    title: 'Javier Sánchez',
     image: '../../../../assets/images/map.jpg',
     text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry, dummy text of the printing and typesetting industry, dummy text of the printing and typesetting industry.'
   }];
