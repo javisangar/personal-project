@@ -3,7 +3,7 @@
 .container {
   background-color: $body-home-color;
 
-  &-open-form{
+  &-open-form {
     overflow: hidden;
   }
 
@@ -80,7 +80,7 @@
 .post__form {
   position: fixed;
   z-index: 30;
-  padding: 10px 0 10px 10px;
+  padding: 10px 10px 10px 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -95,6 +95,10 @@
   &-open {
     top: 130px;
     left: 0px;
+  }
+
+  mat-card {
+    background-color: $form-card-color;
   }
 
   h2 {
@@ -154,7 +158,7 @@
 
   position: fixed;
   z-index: 25;
-  padding: 10px 0 10px 10px;
+  padding: 10px 10px 10px 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -169,6 +173,10 @@
   &-open {
     top: 130px;
     left: 0px;
+  }
+
+  mat-card {
+    background-color: $form-card-color;
   }
 
   h2 {
@@ -190,7 +198,7 @@
 .sale__form {
   position: fixed;
   z-index: 20;
-  padding: 10px 0 10px 10px;
+  padding: 10px 10px 10px 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -205,6 +213,10 @@
   &-open {
     top: 130px;
     left: 0px;
+  }
+
+  mat-card {
+    background-color: $form-card-color;
   }
 
   input {
