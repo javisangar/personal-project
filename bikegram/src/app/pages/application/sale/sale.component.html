@@ -1,27 +1,33 @@
-<article class="container">
+<div class="sale__form" [ngClass]="{'sale__form-open': saleFormOpen }">
 
-  <div class="content-post">
+  <mat-card>
+    <h2>New Sale</h2>
+    <form>
 
-    <mat-card class="sale-card" *ngFor="let sale of sales">
-      <mat-card-header>
-        <div mat-card-avatar class="header-image"></div>
-        <mat-card-title>{{sale.title}}</mat-card-title>
-        <mat-card-subtitle>{{sale.subtitle}}</mat-card-subtitle>
-      </mat-card-header>
+      <label for="image">
+        <input class="custom-file-input" type="file">
+      </label>
 
-      <img mat-card-image [src]="sale.image">
-      <mat-card-content>
-        <p>{{sale.brand}}</p>
-        <p>{{sale.kilometers}}</p>
-        <p>{{sale.price}}</p>
-        <p>
-          {{sale.text}}
-        </p>
-      </mat-card-content>
-      <mat-card-actions>
-          <button mat-stroked-button color="primary"><a routerLink="/back">Return</a></button>      </mat-card-actions>
-    </mat-card>
+      <mat-form-field>
+        <input type="text" matInput placeholder="Brand & Model">
+      </mat-form-field>
 
-  </div>
+      <mat-form-field>
+        <input type="number" matInput placeholder="Kilometers">
+      </mat-form-field>
 
-</article>
+      <mat-form-field>
+        <input type="number" matInput placeholder="Price in €">
+      </mat-form-field>
+
+      <mat-form-field>
+        <textarea matInput placeholder="Sale description"></textarea>
+      </mat-form-field>
+
+      <div class="sale__form-btn">
+        <button type="button" (click)=createSale() mat-raised-button color="primary">Create Sale</button>
+        <button mat-raised-button (click)="setSaleFormStatus(false)" type="button" color="warn">Close</button>
+      </div>
+    </form>
+  </mat-card>
+</div>

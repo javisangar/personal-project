@@ -1,24 +1,20 @@
-<article class="container">
+<div class="post__form" [ngClass]="{'post__form-open': postFormOpen }">
 
-  <div class="content-post">
+  <mat-card>
+    <h2>New Post</h2>
+    <form>
+      <label for="image">
+        <input class="custom-file-input" type="file">
+      </label>
+      <mat-form-field>
+        <textarea matInput placeholder="Enter your post content"></textarea>
+      </mat-form-field>
 
-    <mat-card class="post-card" *ngFor="let card of cards">
-      <mat-card-header>
-        <div mat-card-avatar class="header-image"></div>
-        <mat-card-title>{{card.title}}</mat-card-title>
-        <mat-card-subtitle>{{card.subtitle}}</mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image [src]="card.image">
-      <mat-card-content>
-        <p>
-          {{card.text}}
-        </p>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-stroked-button color="primary"><a routerLink="/back">Return</a></button>
-      </mat-card-actions>
-    </mat-card>
+      <div class="post__form-btn">
+        <button (click)=createPost() mat-raised-button color="primary">Create Post</button>
+        <button (click)="setPostFormStatus(false)" mat-raised-button color="warn">Close</button>
+      </div>
+    </form>
+  </mat-card>
 
-  </div>
-
-</article>
+</div>
