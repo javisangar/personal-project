@@ -28,6 +28,10 @@ export class SaleService {
     addSale(sale) {
         this.sales.push(sale)
     }
+
+    removeSale(id){
+        this.sales = this.sales.filter(p => p.id !== id)
+      }
     
 }
 

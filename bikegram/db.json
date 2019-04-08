@@ -1,44 +1,27 @@
 {
-  "users": [
-    {
-      "id": 1,
-      "email": "javier123@gmail.com",
-      "pass": "12345678"
-    },
-    {
-      "id": 2,
-      "email": "j-luis3@gmail.com",
-      "pass": "12349999"
-
-    },
-    {
-      "id": 3,
-      "email": "manu777-@gmail.com",
-      "pass": "87654321"
-    }
-  ],
-  "userInfo": [
-    {
-      "id": 1,
-      "userName": "Javier Sánchez",
-      "bike": "Montesa Impala",
-      "city": "Madrid",
-      "photo": "www.http://lorempixel.com/400/200/people/1/"
-    },
-    {
-      "id": 2,
-      "userName": "Jose Luis",
-      "bike": "Yamaha R6",
-      "city": "Madrid",
-      "photo": "www.http://lorempixel.com/400/200/people/2/"
-
-    },
-    {
-      "id": 3,
-      "userName": "Manuel",
-      "bike": "Ducati Monster 696",
-      "city": "Madrid",
-      "photo": "www.http://lorempixel.com/400/200/people/3/"
-    }
-  ]
+  "userPosts": [{
+    "id": 1,
+    "title": "Javier Sánchez",
+    "subtitle": "Madrid",
+    "image": "../../../../assets/images/ducati.jpg",
+    "text": "asfafdafdafda"
+  }],
+  "userRoutes": [{
+    "id": 1,
+    "title": "Javier Sánchez",
+    "subtitle": "Madrid",
+    "image": "../../../../assets/images/map.jpg",
+    "text": "zzzzzzzzzz"
+  }],
+  "userSales": [{
+    "id": 1,
+    "userImg": "",
+    "title": "Javier Sánchez",
+    "subtitle": "Madrid",
+    "brand": "Honda CBR 600",
+    "kilometers": "12.500 km",
+    "image": "../../../../assets/images/honda1.jpg",
+    "price": "4.200€",
+    "text": "Vendo Honda CBR 600 del 2009 con pocos kilómetros, revisión recién hecha."
+  }]
 }

@@ -25,5 +25,9 @@ export class RouteService {
         this.routes.push(route)
     }
 
+    removeRoute(id){
+        this.routes = this.routes.filter(p => p.id !== id)
+      }
+
 }
 

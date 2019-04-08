@@ -58,12 +58,11 @@ export class HomeComponent implements OnInit {
   }
 
   getRoutes() {
-
     this.routes = this.routeService.getRoutes();
   }
 
-  getSales() {
 
+  getSales() {
     this.sales = this.saleService.getSales();
   }
 
@@ -80,6 +79,11 @@ export class HomeComponent implements OnInit {
     this.setPostFormStatus(false)
   }
 
+  removePost(event, post){
+    this.postService.removePost(post.id)
+    this.getPosts()
+  }
+
   createRoute() {
     const route = {
       id: Date.now(),
@@ -91,6 +95,11 @@ export class HomeComponent implements OnInit {
     this.routeService.addRoute(route)
     this.getRoutes()
     this.setRouterFormStatus(false)
+  }
+
+  removeRoute(event, route){
+    this.routeService.removeRoute(route.id)
+    this.getRoutes()
   }
 
   createSale() {
@@ -109,4 +118,10 @@ export class HomeComponent implements OnInit {
     this.getSales()
     this.setSaleFormStatus(false)
   }
+
+  removeSale(event, sale){
+    this.saleService.removeSale(sale.id)
+    this.getSales()
+  }
+
 }

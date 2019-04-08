@@ -24,6 +24,12 @@ export class PostService {
   addPost(post) {
     this.posts.push(post)
   }
+   
+  removePost(id){
+    this.posts = this.posts.filter(p => p.id !== id)
+  }
+
+ 
 
 }
 
