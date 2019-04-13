@@ -29,7 +29,5 @@ export class PostService {
     this.posts = this.posts.filter(p => p.id !== id)
   }
 
- 
-
 }
 

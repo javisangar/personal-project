@@ -1,20 +1,26 @@
-<div class="post__form" [ngClass]="{'post__form-open': postFormOpen }">
-
+<div class="route__form" [ngClass]="{'route__form-open': routeFormOpen }">
   <mat-card>
-    <h2>New Post</h2>
+    <h2>New Route</h2>
     <form>
-      <label for="image">
-        <input class="custom-file-input" type="file">
-      </label>
-      <mat-form-field>
-        <textarea matInput placeholder="Enter your post content"></textarea>
-      </mat-form-field>
+        <mat-form-field>
+            <input type="text" matInput placeholder="Start">
+          </mat-form-field>
+          <mat-form-field>
+              <input type="text" matInput placeholder="End">
+            </mat-form-field>
 
-      <div class="post__form-btn">
-        <button (click)=createPost() mat-raised-button color="primary">Create Post</button>
-        <button (click)="setPostFormStatus(false)" mat-raised-button color="warn">Close</button>
+      <div class="route___form-map">
+        <iframe
+          src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=Madrid+(Javier%20Sanchez)&amp;ie=UTF8&amp;t=&amp;z=18&amp;iwloc=B&amp;output=embed"
+          width="100%" height="228" frameborder="0" style="border:0" allowfullscreen></iframe>
+      </div>
+      <mat-form-field>
+        <textarea matInput placeholder="Enter route description"></textarea>
+      </mat-form-field>
+      <div class="route__form-btn">
+        <button (click)=createRoute() mat-raised-button color="primary">Create Route</button>
+        <button (click)="setRouterFormStatus(false)" mat-raised-button color="warn">Close</button>
       </div>
     </form>
   </mat-card>
-
 </div>
