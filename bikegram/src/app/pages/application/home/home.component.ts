@@ -16,6 +16,10 @@ export class HomeComponent implements OnInit {
   posts: Array<any>;
   routes: Array<any>;
   sales: Array<any>;
+  lat: number;
+  lng: number;
+  origin: any
+  destination: any
 
   /* 
   sales = [{
@@ -37,7 +41,23 @@ export class HomeComponent implements OnInit {
     this.getPosts();
     this.getRoutes();
     this.getSales();
+    this.setMapConfig()
+  }
 
+  setMapConfig() {
+    this.lat = 40.407901;
+    this.lng = -3.706990;
+    this.origin = {
+      lat: 38.96795115401593,
+      lng: - 1.900634765625,
+    }
+    this.destination = {
+      lat: 41.27780646738183,
+      lng: - 4.21875
+    }
+    
+    this.origin = 'Lugo'
+    this.destination = 'Albacete'
   }
 
   setPostFormStatus(open) {
@@ -79,7 +99,7 @@ export class HomeComponent implements OnInit {
     this.setPostFormStatus(false)
   }
 
-  removePost(event, post){
+  removePost(event, post) {
     this.postService.removePost(post.id)
     this.getPosts()
   }
@@ -97,7 +117,7 @@ export class HomeComponent implements OnInit {
     this.setRouterFormStatus(false)
   }
 
-  removeRoute(event, route){
+  removeRoute(event, route) {
     this.routeService.removeRoute(route.id)
     this.getRoutes()
   }
@@ -119,7 +139,7 @@ export class HomeComponent implements OnInit {
     this.setSaleFormStatus(false)
   }
 
-  removeSale(event, sale){
+  removeSale(event, sale) {
     this.saleService.removeSale(sale.id)
     this.getSales()
   }

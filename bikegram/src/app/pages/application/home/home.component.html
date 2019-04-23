@@ -35,12 +35,12 @@
       <mat-card>
         <h2>New Route</h2>
         <form>
-            <mat-form-field>
-                <input type="text" matInput placeholder="Start">
-              </mat-form-field>
-              <mat-form-field>
-                  <input type="text" matInput placeholder="End">
-                </mat-form-field>
+          <mat-form-field>
+            <input type="text" matInput placeholder="Start">
+          </mat-form-field>
+          <mat-form-field>
+            <input type="text" matInput placeholder="End">
+          </mat-form-field>
 
           <div class="route___form-map">
             <iframe
@@ -119,13 +119,11 @@
         <mat-card-subtitle>{{route.subtitle}}</mat-card-subtitle>
 
       </mat-card-header>
-     <div class="route-card__map">
-      <mgl-map class="map"
-      [style]="'mapbox://styles/javisangar/cju3y4oq503am1fmr0ih4m2io'"
-      [zoom]="[9]"
-      [center]="[-74.50, 40]"
-    >
-    </mgl-map>
+      <div class="route-card__map">
+        <agm-map [latitude]="lat" [longitude]="lng">
+          <agm-direction [origin]="origin" [destination]="destination">
+          </agm-direction>
+        </agm-map>
       </div>
       <mat-card-content>
         <p>

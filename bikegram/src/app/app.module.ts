@@ -33,8 +33,9 @@ import { FormSaleComponent } from './shared/form-sale/form-sale.component';
 
 import { TokenInterceptor } from '../app/services/token.interceptor';
 
-import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
 import { LoginGuard } from './guards/login.guard';
+import { AgmCoreModule } from '@agm/core';
+import { AgmDirectionModule } from 'agm-direction';
 
 @NgModule({
   declarations: [
@@ -67,9 +68,10 @@ import { LoginGuard } from './guards/login.guard';
     MatCardModule,
     MatSelectModule,
     HttpClientModule,
-    NgxMapboxGLModule.withConfig({
-      accessToken: 'pk.eyJ1IjoiamF2aXNhbmdhciIsImEiOiJjanUxZGdqbG8wMGhzNDNwNDFuenR5OG40In0.szjD7y6msaWkI4YZZPx9fw' 
-    })
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyB3GKuRgLEvf0oq5RFUq1GwD1LM7urmBoc'
+    }),
+    AgmDirectionModule
   ],
   providers: [PostService, RouteService, SaleService, AuthService, LoginGuard,  {
     provide: HTTP_INTERCEPTORS,
