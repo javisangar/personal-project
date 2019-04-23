@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { AuthService } from '../../services/auth.services';
+import { Router, ActivatedRoute } from "@angular/router";
+
 
 @Component({
   selector: 'app-register',
@@ -9,28 +12,62 @@ import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
 
 
 export class RegisterComponent {
-  name = new FormControl('', [Validators.required]);
-  email = new FormControl('', [Validators.required, Validators.email]);
-  password = new FormControl('', [Validators.required]);
+  myForm: FormGroup;
+  showError = false;
+
+  constructor(private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute) {
+  }
+
+  ngOnInit() {
+    this.myForm = new FormGroup({
+      'email': new FormControl('', [
+        Validators.required
+      ]),
+      'name': new FormControl('', [
+        Validators.required
+      ]),
+      'password': new FormControl('', [
+        Validators.required,
+        Validators.minLength(8)
+      ]),
+    });
+  }
 
   getErrorMessageName() {
-    return this.name.hasError('required') ? 'You must enter a valid name' :
-      this.name.hasError('name') ? 'Not a valid name' :
+    return this.myForm.controls.name.hasError('required') ? 'You must enter a valid name' :
+      this.myForm.controls.name.hasError('name') ? 'Not a valid name' :
         '';
   }
 
  
   getErrorMessageEmail() {
-    return this.email.hasError('required') ? 'You must enter a valid email' :
-      this.email.hasError('email') ? 'Not a valid email' :
+    return this.myForm.controls.email.hasError('required') ? 'You must enter a value' :
+    this.myForm.controls.email.hasError('email') ? 'Not a valid email' :
         '';
 
   }
 
   getErrorMessagePassword() {
-    return this.password.hasError('required') ? 'You must enter a valid password' :
-      this.password.hasError('password') ? 'Not a valid password' :
+    return this.myForm.controls.password.hasError('required') ? 'You must enter a value' :
+    this.myForm.controls.password.hasError('password') ? 'Not a valid password' :
         '';
 
+  }
+  
+  submit() {
+    if (this.myForm.valid) {
+      this.authService.register(this.myForm.value, this.activatedRoute.snapshot.params.token).then(
+        response => {
+          this.showError = false;
+          this.router.navigate(['login']);
+        },
+        err => {
+          this.showError = true;
+        }
+      );
+    }
   }
 }

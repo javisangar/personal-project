@@ -34,8 +34,8 @@ export class AuthService {
     });
   }
 
-  confirmPassword(data: any, token: any) {
-    return this.http.post(`${environment.apiUrl}/auth/confirm/${token}`, data).toPromise().then((res: any) => {
+  register(data: any, token: any) {
+    return this.http.post(`${environment.apiUrl}/auth/sign-up`, data).toPromise().then((res: any) => {
       if (res.token) {
         this.token = res.token;
       }
