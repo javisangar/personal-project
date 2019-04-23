@@ -10,6 +10,8 @@ import { PostComponent } from './pages/application/post/post.component';
 import { RouteComponent } from './pages/application/route/route.component';
 import { SaleComponent } from './pages/application/sale/sale.component';
 
+import { LoginGuard } from './guards/login.guard';
+
 
 
 const routes: Routes = [
@@ -19,18 +21,23 @@ const routes: Routes = [
     pathMatch: 'full'
   },{
     path: 'home',
+    canActivate: [LoginGuard],
     component: HomeComponent
   },{
     path: 'profile',
+    canActivate: [LoginGuard],
     component: ProfileComponent
   },{
     path: 'post/:id',
+    canActivate: [LoginGuard],
     component: PostComponent
   },{
     path: 'route/:id',
+    canActivate: [LoginGuard],
     component: RouteComponent
   },{
     path: 'sale/:id',
+    canActivate: [LoginGuard],
     component: SaleComponent
   },{
     path: 'login',

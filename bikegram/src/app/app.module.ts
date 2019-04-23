@@ -31,9 +31,10 @@ import { FormPostComponent } from './shared/form-post/form-post.component';
 import { FormRouteComponent } from './shared/form-route/form-route.component';
 import { FormSaleComponent } from './shared/form-sale/form-sale.component';
 
-import { AuthInterceptor } from '../app/services/auth.interceptor';
+import { TokenInterceptor } from '../app/services/token.interceptor';
 
 import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
+import { LoginGuard } from './guards/login.guard';
 
 @NgModule({
   declarations: [
@@ -70,9 +71,9 @@ import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
       accessToken: 'pk.eyJ1IjoiamF2aXNhbmdhciIsImEiOiJjanUxZGdqbG8wMGhzNDNwNDFuenR5OG40In0.szjD7y6msaWkI4YZZPx9fw' 
     })
   ],
-  providers: [PostService, RouteService, SaleService, AuthService,  {
+  providers: [PostService, RouteService, SaleService, AuthService, LoginGuard,  {
     provide: HTTP_INTERCEPTORS,
-    useClass: AuthInterceptor,
+    useClass: TokenInterceptor,
     multi: true
   }],
   bootstrap: [AppComponent]
