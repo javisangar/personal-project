@@ -1,6 +1,9 @@
 @import "./assets/scss/reset";
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~mapbox-gl/dist/mapbox-gl.css";
+@import "~@mapbox/mapbox-gl-geocoder/lib/mapbox-gl-geocoder.css";
+//@import "mapbox://styles/javisangar/cju3y4oq503am1fmr0ih4m2io";
 
 
 body{

@@ -33,6 +33,8 @@ import { FormSaleComponent } from './shared/form-sale/form-sale.component';
 
 import { AuthInterceptor } from '../app/services/auth.interceptor';
 
+import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,8 +65,10 @@ import { AuthInterceptor } from '../app/services/auth.interceptor';
     BrowserAnimationsModule,
     MatCardModule,
     MatSelectModule,
-    HttpClientModule
-
+    HttpClientModule,
+    NgxMapboxGLModule.withConfig({
+      accessToken: 'pk.eyJ1IjoiamF2aXNhbmdhciIsImEiOiJjanUxZGdqbG8wMGhzNDNwNDFuenR5OG40In0.szjD7y6msaWkI4YZZPx9fw' 
+    })
   ],
   providers: [PostService, RouteService, SaleService, AuthService,  {
     provide: HTTP_INTERCEPTORS,

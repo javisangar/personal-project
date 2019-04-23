@@ -10,7 +10,6 @@ import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
 
 export class RegisterComponent {
   name = new FormControl('', [Validators.required]);
-  surname = new FormControl('', [Validators.required]);
   email = new FormControl('', [Validators.required, Validators.email]);
   password = new FormControl('', [Validators.required]);
 
@@ -20,13 +19,7 @@ export class RegisterComponent {
         '';
   }
 
-  getErrorMessageSurName() {
-    return this.surname.hasError('required') ? 'You must enter a valid surname' :
-      this.surname.hasError('surname') ? 'Not a valid surname' :
-        '';
-
-  }
-
+ 
   getErrorMessageEmail() {
     return this.email.hasError('required') ? 'You must enter a valid email' :
       this.email.hasError('email') ? 'Not a valid email' :

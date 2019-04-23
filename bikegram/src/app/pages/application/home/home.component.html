@@ -119,11 +119,13 @@
         <mat-card-subtitle>{{route.subtitle}}</mat-card-subtitle>
 
       </mat-card-header>
-     <!-- <img mat-card-image [src]="route.image"> -->
      <div class="route-card__map">
-        <iframe
-          src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=Madrid+(Javier%20Sanchez)&amp;ie=UTF8&amp;t=&amp;z=18&amp;iwloc=B&amp;output=embed"
-          width="100%" height="228" frameborder="0" style="border:0" allowfullscreen></iframe>
+      <mgl-map class="map"
+      [style]="'mapbox://styles/javisangar/cju3y4oq503am1fmr0ih4m2io'"
+      [zoom]="[9]"
+      [center]="[-74.50, 40]"
+    >
+    </mgl-map>
       </div>
       <mat-card-content>
         <p>
