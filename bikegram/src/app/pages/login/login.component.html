@@ -1,34 +1,29 @@
 <div class="login-menu">
-
   <div class="login__form">
     <mat-card>
-      <form action="">
+      <form [formGroup]="myForm" novalidate="">
 
         <div>
           <mat-form-field>
-            <input matInput placeholder="Enter your email" [formControl]="email" required>
-            <mat-error *ngIf="email.invalid">{{getErrorMessageEmail()}}</mat-error>
+            <input class="form-control" matInput placeholder="Enter your email"  formControlName="email" required>
+            <mat-error *ngIf="myForm?.controls.email.invalid">{{getErrorMessageEmail()}}</mat-error>
           </mat-form-field>
         </div>
 
         <div>
           <mat-form-field>
-            <input matInput placeholder="Enter your password" [formControl]="password" type="password" minlength="4"
-              required>
-            <mat-error *ngIf="password.invalid">{{getErrorMessagePassword()}}</mat-error>
-
+            <input class="form-control" matInput placeholder="Enter your password" 
+              type="password" formControlName="password" minlength="4" required>
+            <mat-error *ngIf="myForm?.controls.password.invalid">{{getErrorMessagePassword()}}</mat-error>
           </mat-form-field>
         </div>
 
         <div class="login__buttons">
-          <button mat-button color="primary">Login</button>
+          <button mat-button color="primary" [disabled]="!myForm.valid" (click)="submit()">Login</button>
           <button class="register-btn" mat-button color="warn"><a routerLink="/register">Register</a></button>
         </div>
 
       </form>
-
     </mat-card>
-
   </div>
-
 </div>

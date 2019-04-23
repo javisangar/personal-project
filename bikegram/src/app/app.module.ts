@@ -12,6 +12,7 @@ import { HeaderComponent } from './shared/header/header.component';
 import { LoginComponent as LoginFormComponent } from './pages/login/login.component';
 import { PagesComponent } from './pages/pages.component';
 import {FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule, MatInputModule, MatCardModule, MatSelectModule } from '@angular/material';
@@ -24,11 +25,13 @@ import { SaleComponent } from './pages/application/sale/sale.component';
 import { PostService } from './services/posts.services';
 import { RouteService } from './services/routes.services';
 import { SaleService } from './services/sales.service';
+import { AuthService } from './services/auth.services';
 
 import { FormPostComponent } from './shared/form-post/form-post.component';
 import { FormRouteComponent } from './shared/form-route/form-route.component';
 import { FormSaleComponent } from './shared/form-sale/form-sale.component';
 
+import { AuthInterceptor } from '../app/services/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -59,10 +62,16 @@ import { FormSaleComponent } from './shared/form-sale/form-sale.component';
     MatInputModule,
     BrowserAnimationsModule,
     MatCardModule,
-    MatSelectModule
+    MatSelectModule,
+    HttpClientModule
 
   ],
-  providers: [PostService, RouteService, SaleService],
+  providers: [PostService, RouteService, SaleService, AuthService,  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
