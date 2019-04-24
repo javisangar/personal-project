@@ -1,4 +1,9 @@
 import { Injectable } from "@angular/core";
+import { environment } from 'src/environments/environment';
+import { HttpClient } from '@angular/common/http';
+import { PostsModel } from '../models/posts.model';
+
+const API = environment.apiUrl;
 
 @Injectable({
   providedIn: 'root'
@@ -7,24 +12,21 @@ export class PostService {
   posts: Array<any>;
 
 
-  constructor() {
-    this.posts = [{
-      id: Date.now(),
-      title: 'Javier Sánchez',
-      subtitle: 'Madrid',
-      image: '../../../../assets/images/ducati.jpg',
-      text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
-    }]
+  constructor(private httpClient: HttpClient) {
   }
-  getPosts() {
-    return this.posts;
+  getMatches(post) {
+    return this.httpClient.get(`${API}/api/v1/posts`).toPromise().then((posts: Array<PostsModel>) => posts);
   }
   addPost(post) {
-    this.posts.push(post)
+    return this.httpClient.post(`${API}/api/v1/post`, post).toPromise().then((posts: PostsModel)=> posts);
   }
    
-  removePost(id){
-    this.posts = this.posts.filter(p => p.id !== id)
+  remove(id){
+    return this.httpClient.delete(`${API}/api/v1/post/${id}`).toPromise().then((posts: PostsModel)=> posts);
+  }
+
+  edit(post){
+    return this.httpClient.put(`${API}/api/v1/posts/${post.id}`, post).toPromise().then((posts: PostsModel)=> posts);
   }
 
 }

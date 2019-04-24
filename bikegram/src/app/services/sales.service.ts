@@ -1,37 +1,33 @@
-import {
-    Injectable
-} from "@angular/core";
+import { Injectable } from "@angular/core";
+import { environment } from 'src/environments/environment';
+import { HttpClient } from '@angular/common/http';
+import { SalesModel } from '../models/sales.model';
+
+const API = environment.apiUrl;
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
-export class SaleService {
-    sales: Array<any>;
+export class PostService {
+  sales: Array<any>;
 
 
-    constructor() {
-        this.sales = [{
-            id: Date.now(),
-            userImg: '',
-            title: 'Javier Sánchez',
-            subtitle: 'Madrid',
-            brand: 'Honda CBR 600',
-            kilometers: '12.500 km',
-            image: '../../../../assets/images/honda1.jpg',
-            price: '4.200€',
-            text: 'Vendo Honda CBR 600 del 2009 con pocos kilómetros, revisión recién hecha'
-        }]
-    }
-    getSales() {
-        return this.sales;
-    }
-    addSale(sale) {
-        this.sales.push(sale)
-    }
+  constructor(private httpClient: HttpClient) {
+  }
+  getMatches(sale) {
+    return this.httpClient.get(`${API}/api/v1/sales`).toPromise().then((sales: Array<SalesModel>) => sales);
+  }
+  addPost(sale) {
+    return this.httpClient.post(`${API}/api/v1/sales`, sale).toPromise().then((sales: SalesModel)=> sales);
+  }
+   
+  remove(id){
+    return this.httpClient.delete(`${API}/api/v1/sales/${id}`).toPromise().then((sales: SalesModel)=> sales);
+  }
 
-    removeSale(id){
-        this.sales = this.sales.filter(p => p.id !== id)
-      }
-    
+  edit(post){
+    return this.httpClient.put(`${API}/api/v1/posts/${post.id}`, post).toPromise().then((sales: SalesModel)=> sales);
+  }
+
 }
 
