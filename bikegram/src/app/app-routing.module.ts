@@ -17,12 +17,24 @@ import { LoginGuard } from './guards/login.guard';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'login',
     pathMatch: 'full'
   },{
     path: 'home',
     canActivate: [LoginGuard],
     component: HomeComponent
+  },{
+    path:'home/new-post',
+    canActivate: [LoginGuard],
+    component: PostComponent
+  },{
+    path:'home/new-route',
+    canActivate: [LoginGuard],
+    component: RouteComponent
+  },{
+    path:'home/new-sale',
+    canActivate: [LoginGuard],
+    component: SaleComponent
   },{
     path: 'profile',
     canActivate: [LoginGuard],

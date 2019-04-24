@@ -5,9 +5,11 @@
   <div class="content-post">
 
     <div class="userTools">
-      <button type="button" (click)="setPostFormStatus(true)" class="newPost__btn">+ Post</button>
-      <button type="button" (click)="setRouterFormStatus(true)" class="newRoute__btn">+ Route</button>
-      <button type="button" (click)="setSaleFormStatus(true)" class="newSale__btn">+ Sale</button>
+      <button type="button" routerLink="new-post" class="newPost__btn">+ Post</button>
+      <button type="button" routerLink="new-route" class="newRoute__btn">+ Route</button>
+      <button type="button" routerLink="new-sale" class="newSale__btn">+ Sale</button>
+      <!--<button type="button" (click)="setSaleFormStatus(true)" class="newSale__btn">+ Sale</button>-->
+
     </div>
 
     <div class="post__form" [ngClass]="{'post__form-open': postFormOpen }">

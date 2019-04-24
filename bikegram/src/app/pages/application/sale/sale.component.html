@@ -1,33 +1,36 @@
-<div class="sale__form" [ngClass]="{'sale__form-open': saleFormOpen }">
+<app-header></app-header>
+<div class="container">
+  <div class="sale__form">
 
-  <mat-card>
-    <h2>New Sale</h2>
-    <form>
+    <mat-card>
+      <h2>New Sale</h2>
+      <form>
 
-      <label for="image">
-        <input class="custom-file-input" type="file">
-      </label>
+        <label for="image">
+          <input class="custom-file-input" type="file">
+        </label>
 
-      <mat-form-field>
-        <input type="text" matInput placeholder="Brand & Model">
-      </mat-form-field>
+        <mat-form-field>
+          <input type="text" matInput placeholder="Brand & Model">
+        </mat-form-field>
 
-      <mat-form-field>
-        <input type="number" matInput placeholder="Kilometers">
-      </mat-form-field>
+        <mat-form-field>
+          <input type="number" matInput placeholder="Kilometers">
+        </mat-form-field>
 
-      <mat-form-field>
-        <input type="number" matInput placeholder="Price in €">
-      </mat-form-field>
+        <mat-form-field>
+          <input type="number" matInput placeholder="Price in €">
+        </mat-form-field>
 
-      <mat-form-field>
-        <textarea matInput placeholder="Sale description"></textarea>
-      </mat-form-field>
+        <mat-form-field>
+          <textarea matInput placeholder="Sale description"></textarea>
+        </mat-form-field>
 
-      <div class="sale__form-btn">
-        <button type="button" (click)=createSale() mat-raised-button color="primary">Create Sale</button>
-        <button mat-raised-button (click)="setSaleFormStatus(false)" type="button" color="warn">Close</button>
-      </div>
-    </form>
-  </mat-card>
+        <div class="sale__form-btn">
+          <button type="button" (click)=createSale() mat-raised-button color="primary">Create Sale</button>
+          <button mat-raised-button routerLink="/home" type="button" color="warn">Close</button>
+        </div>
+      </form>
+    </mat-card>
+  </div>
 </div>

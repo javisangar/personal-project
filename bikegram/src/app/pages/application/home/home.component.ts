@@ -56,8 +56,8 @@ export class HomeComponent implements OnInit {
       lng: - 4.21875
     }
     
-    this.origin = 'Lugo'
-    this.destination = 'Albacete'
+    this.origin = 'Albacete'
+    this.destination = 'Ayna'
   }
 
   setPostFormStatus(open) {
