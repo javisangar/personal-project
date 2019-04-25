@@ -24,7 +24,10 @@ export class FormPostComponent implements OnInit {
     this.myForm = new FormGroup({
       'text': new FormControl('', [
         Validators.required
+      ]), 'image': new FormControl('', [
+        Validators.required
       ])
+      
     });
 
   }

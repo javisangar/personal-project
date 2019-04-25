@@ -4,12 +4,12 @@
 
     <mat-card>
       <h2>New Route</h2>
-      <form>
+      <form [formGroup]="myForm">
         <mat-form-field>
-          <input type="text" matInput placeholder="Start">
+          <input type="text" formControlName="start" matInput placeholder="Start">
         </mat-form-field>
         <mat-form-field>
-          <input type="text" matInput placeholder="End">
+          <input type="text" formControlName="end" matInput placeholder="End">
         </mat-form-field>
         <div class="route___form-map" *ngIf="lat && lng">
           <agm-map [zoom]= "15" [latitude]="lat" [longitude]="lng">
@@ -19,7 +19,7 @@
           </agm-map>
         </div>
         <mat-form-field>
-          <textarea matInput placeholder="Enter route description"></textarea>
+          <textarea matInput formControlName="description" placeholder="Enter route description"></textarea>
         </mat-form-field>
         <div class="route__form-btn">
           <button (click)=createRoute() mat-raised-button color="primary">Create Route</button>
