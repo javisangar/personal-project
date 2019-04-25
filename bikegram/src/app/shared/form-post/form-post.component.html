@@ -1,20 +1,23 @@
-<div class="post__form" [ngClass]="{'post__form-open': postFormOpen }">
+<app-header></app-header>
+<div class="container">
+  <div class="post__form">
 
-  <mat-card>
-    <h2>New Post</h2>
-    <form>
-      <label for="image">
-        <input class="custom-file-input" type="file">
-      </label>
-      <mat-form-field>
-        <textarea matInput placeholder="Enter your post content"></textarea>
-      </mat-form-field>
+    <mat-card>
+      <h2>New Post</h2>
+      <form [formGroup]="myForm">
+        <label for="image">
+          <input class="custom-file-input" type="file">
+        </label>
+        <mat-form-field>
+          <textarea matInput formControlName="text" placeholder="Enter your post content"></textarea>
+        </mat-form-field>
 
-      <div class="post__form-btn">
-        <button (click)=createPost() mat-raised-button color="primary">Create Post</button>
-        <button (click)="setPostFormStatus(false)" mat-raised-button color="warn">Close</button>
-      </div>
-    </form>
-  </mat-card>
+        <div class="post__form-btn">
+          <button (click)=createPost() mat-raised-button color="primary">Create Post</button>
+          <button routerLink="/home" mat-raised-button color="warn">Close</button>
+        </div>
+      </form>
+    </mat-card>
 
+  </div>
 </div>

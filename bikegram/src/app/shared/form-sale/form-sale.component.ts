@@ -8,42 +8,25 @@ import { SaleService } from 'src/app/services/sales.service';
   styleUrls: ['./form-sale.component.scss']
 })
 export class FormSaleComponent implements OnInit {
-  saleFormOpen = false;
   sales: Array<any>;
 
 
   constructor(private saleService: SaleService) { }
 
   ngOnInit() {
-    this.getSales();
+    //this.getSales();
 
   }
 
-  setSaleFormStatus(open) {
-    this.saleFormOpen = open
-  }
 
   getSales() {
-
-    this.sales = this.saleService.getSales();
+    this.saleService.getSales().then(sales => {
+      this.sales = sales
+    })
   }
 
-  createSale() {
-    const sale = {
-      id: Date.now(),
-      userImg: '',
-      title: 'Javier Sánchez',
-      subtitle: 'Madrid',
-      brand: 'Honda CBR 600',
-      kilometers: '12.500 km',
-      image: '../../../../assets/images/honda1.jpg',
-      price: '4.200€',
-      text: 'Vendo Honda CBR 600 del 2009 con pocos kilómetros, revisión recién hecha'
+    addSale() {
+
     }
-    this.saleService.addSale(sale)
-    this.getSales()
-    this.setSaleFormStatus(false)
-  }
-
 
 }

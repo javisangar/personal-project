@@ -97,8 +97,8 @@
     <mat-card class="post-card" *ngFor="let post of posts">
       <mat-card-header>
         <div mat-card-avatar class="header-image"></div>
-        <mat-card-title>{{post.title}}</mat-card-title>
-        <mat-card-subtitle>{{post.subtitle}}</mat-card-subtitle>
+        <mat-card-title>{{name}}</mat-card-title>
+        <mat-card-subtitle></mat-card-subtitle>
       </mat-card-header>
       <img mat-card-image [src]="post.image">
       <mat-card-content>
@@ -142,15 +142,15 @@
     <mat-card class="sale-card" *ngFor="let sale of sales">
       <mat-card-header>
         <div mat-card-avatar class="header-image"></div>
-        <mat-card-title>{{sale.title}}</mat-card-title>
-        <mat-card-subtitle>{{sale.subtitle}}</mat-card-subtitle>
+        <mat-card-title>{{sale.name}}</mat-card-title>
+        <mat-card-subtitle>{{sale.location}}</mat-card-subtitle>
       </mat-card-header>
 
       <img mat-card-image [src]="sale.image">
       <mat-card-content>
         <p>{{sale.brand}}</p>
-        <p>{{sale.kilometers}}</p>
-        <p>{{sale.price}}</p>
+        <p>{{sale.kilometers}} km</p>
+        <p>Precio:{{sale.price}} €</p>
         <p>
           {{sale.text}}
         </p>
@@ -158,7 +158,7 @@
       <mat-card-actions>
         <button mat-stroked-button color="primary"><a routerLink="/sale/{{sale.id}}">More Info</a></button>
         <button mat-button>Edit</button>
-        <button mat-button color="warn" (click)="removeSale($event, sale)">Delete</button>
+        <button mat-button color="warn" (click)="removeSales($event, sale._id)">Delete</button>
       </mat-card-actions>
     </mat-card>
 

@@ -8,16 +8,16 @@ const API = environment.apiUrl;
 @Injectable({
   providedIn: 'root'
 })
-export class PostService {
+export class SaleService {
   sales: Array<any>;
 
 
   constructor(private httpClient: HttpClient) {
   }
-  getMatches(sale) {
+  getSales() {
     return this.httpClient.get(`${API}/api/v1/sales`).toPromise().then((sales: Array<SalesModel>) => sales);
   }
-  addPost(sale) {
+  addSale(sale) {
     return this.httpClient.post(`${API}/api/v1/sales`, sale).toPromise().then((sales: SalesModel)=> sales);
   }
    

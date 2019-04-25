@@ -1,43 +1,33 @@
 import { Component, OnInit } from '@angular/core';
-import { RouteService } from 'src/app/services/routes.services';
-
+import { AuthService } from '../../services/auth.services';
 
 @Component({
-  selector: 'app-form-route',
-  templateUrl: './form-route.component.html',
-  styleUrls: ['./form-route.component.scss']
+  selector: 'app-route',
+  templateUrl: 'form-route.component.html',
+  styleUrls: ['form-route.component.scss']
 })
 export class FormRouteComponent implements OnInit {
-  routeFormOpen = false;
-  routes: Array<any>;
+  
+  routes: any;
+  user: any;
+  lat: number;
+  lng: number;
 
-  constructor(private routeService: RouteService) { }
+  constructor(private authService: AuthService) { }
+  
 
   ngOnInit() {
-    this.getRoutes();
-
+    this.user = this.authService.user;
+    this.getUserLocation();
   }
 
-  setRouterFormStatus(open) {
-    this.routeFormOpen = open
-  }
-
-  getRoutes() {
-
-    this.routes = this.routeService.getRoutes();
-  }
-
-  createRoute() {
-    const route = {
-      id: Date.now(),
-      title: 'Javier Sánchez',
-      subtitle: 'Madrid',
-      image: '../../../../assets/images/map.jpg',
-      text: 'zzzzzzzzzz'
+  getUserLocation(){
+    if(navigator.geolocation){
+      navigator.geolocation.getCurrentPosition(position => {
+        this.lat = position.coords.latitude;
+        this.lng = position.coords.longitude;
+      })
     }
-    this.routeService.addRoute(route)
-    this.getRoutes()
-    this.setRouterFormStatus(false)
   }
 
 }

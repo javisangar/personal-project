@@ -10,6 +10,11 @@ import { PostComponent } from './pages/application/post/post.component';
 import { RouteComponent } from './pages/application/route/route.component';
 import { SaleComponent } from './pages/application/sale/sale.component';
 
+import { FormPostComponent } from './shared/form-post/form-post.component';
+import { FormSaleComponent } from './shared/form-sale/form-sale.component';
+import { FormRouteComponent } from './shared/form-route/form-route.component';
+
+
 import { LoginGuard } from './guards/login.guard';
 
 
@@ -26,15 +31,15 @@ const routes: Routes = [
   },{
     path:'home/new-post',
     canActivate: [LoginGuard],
-    component: PostComponent
+    component: FormPostComponent
   },{
     path:'home/new-route',
     canActivate: [LoginGuard],
-    component: RouteComponent
+    component: FormRouteComponent
   },{
     path:'home/new-sale',
     canActivate: [LoginGuard],
-    component: SaleComponent
+    component: FormSaleComponent
   },{
     path: 'profile',
     canActivate: [LoginGuard],

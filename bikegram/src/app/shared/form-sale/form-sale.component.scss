@@ -1,56 +1,78 @@
-.sale__form {
+@import "../../../assets/scss/colors";
 
+.container {
+  background-color: $body-home-color;
+
+  .sale__form {
+    position: fixed;
+    z-index: 20;
+    padding: 10px 10px 10px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    background-color: $post__form-bg-color;
+    width: 100%;
+    height: 100vh;
+    color: #fff;
+   
+  
+    mat-card {
+      background-color: $form-card-color;
+    }
+  
     input {
-        margin-bottom: 5px;
+      margin-bottom: 5px;
     }
-
+  
     h2 {
-        margin-bottom: 10px;
-        margin-left: 36%;
-        font-size: 19px;
-        font-weight: bold;
+      margin-bottom: 10px;
+      margin-left: 36%;
+      font-size: 19px;
+      font-weight: bold;
     }
-
+  
     .sale__form-btn {
-        button {
-            margin-left: 8px;
-        }
+      button {
+        margin-left: 8px;
+      }
     }
-
+  
     .custom-file-input {
-        margin-bottom: 10px;
-        color: transparent;
+      margin-bottom: 10px;
+      color: transparent;
     }
-
+  
     .custom-file-input::-webkit-file-upload-button {
-        visibility: hidden;
+      visibility: hidden;
     }
-
+  
     .custom-file-input::before {
-        content: 'Upload Image';
-        color: black;
-        display: inline-block;
-        background: -webkit-linear-gradient(top, #fff, #e3e3e3);
-        border-radius: 3px;
-        padding: 5px 8px;
-        outline: none;
-        white-space: nowrap;
-        -webkit-user-select: none;
-        cursor: pointer;
-        text-shadow: 1px 1px #fff;
-        font-weight: 700;
-        font-size: 10pt;
+      content: 'Upload Image';
+      color: black;
+      display: inline-block;
+      background: -webkit-linear-gradient(top, #fff, #e3e3e3);
+      border-radius: 3px;
+      padding: 5px 8px;
+      outline: none;
+      white-space: nowrap;
+      -webkit-user-select: none;
+      cursor: pointer;
+      text-shadow: 1px 1px #fff;
+      font-weight: 700;
+      font-size: 10pt;
     }
-
+  
     .custom-file-input:hover::before {
-        border-color: black;
+      border-color: black;
     }
-
+  
     .custom-file-input:active {
-        outline: 0;
+      outline: 0;
     }
-
+  
     .custom-file-input:active::before {
-        background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+      background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
     }
+  }
 }

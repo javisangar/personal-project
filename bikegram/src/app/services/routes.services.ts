@@ -8,16 +8,16 @@ const API = environment.apiUrl;
 @Injectable({
   providedIn: 'root'
 })
-export class PostService {
+export class RouteService {
   routes: Array<any>;
 
 
   constructor(private httpClient: HttpClient) {
   }
-  getMatches(route) {
-    return this.httpClient.get(`${API}/api/v1/route`).toPromise().then((routes: Array<RoutesModel>) => routes);
+  getRoutes() {
+    return this.httpClient.get(`${API}/api/v1/routes`).toPromise().then((routes: Array<RoutesModel>) => routes);
   }
-  addPost(route) {
+  addRoute(route) {
     return this.httpClient.post(`${API}/api/v1/routes`, route).toPromise().then((routes: RoutesModel)=> routes);
   }
    

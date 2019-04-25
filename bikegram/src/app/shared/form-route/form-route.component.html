@@ -1,14 +1,31 @@
-<div class="route__form" [ngClass]="{'route__form-open': routeFormOpen }">
+<app-header></app-header>
+<div class="container">
+  <div class="route__form" [ngClass]="{'route__form-open': routeFormOpen }">
 
-  <h2>New Route</h2>
-  <form>
-    <mat-form-field>
-      <input type="text" matInput placeholder="Enter route description">
-    </mat-form-field>
-    <div class="route__form-btn">
-      <button (click)=createRoute() mat-raised-button color="primary">Create Route</button>
-      <button (click)="setRouterFormStatus(false)" mat-raised-button color="warn">Close</button>
-    </div>
-  </form>
-
+    <mat-card>
+      <h2>New Route</h2>
+      <form>
+        <mat-form-field>
+          <input type="text" matInput placeholder="Start">
+        </mat-form-field>
+        <mat-form-field>
+          <input type="text" matInput placeholder="End">
+        </mat-form-field>
+        <div class="route___form-map" *ngIf="lat && lng">
+          <agm-map [zoom]= "15" [latitude]="lat" [longitude]="lng">
+            <agm-marker [latitude]="lat" [longitude]="lng" >
+              <agm-info-window [isOpen]="true"><p>{{user?.name}} estas aquí</p></agm-info-window>
+            </agm-marker>
+          </agm-map>
+        </div>
+        <mat-form-field>
+          <textarea matInput placeholder="Enter route description"></textarea>
+        </mat-form-field>
+        <div class="route__form-btn">
+          <button (click)=createRoute() mat-raised-button color="primary">Create Route</button>
+          <button routerLink="/home" mat-raised-button color="warn">Close</button>
+        </div>
+      </form>
+    </mat-card>
+  </div>
 </div>

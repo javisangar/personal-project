@@ -9,40 +9,42 @@ import { PostService } from 'src/app/services/posts.services';
   styleUrls: ['./form-post.component.scss']
 })
 export class FormPostComponent implements OnInit {
-  postFormOpen = false;
+  myForm: FormGroup;
   posts: Array<any>;
 
   constructor(private postService: PostService) { }
 
   ngOnInit() {
-    this.getPosts();
+    this.myForm = new FormGroup({
+      'text': new FormControl('', [
+        Validators.required
+      ])
+    });
 
   }
-
-  setPostFormStatus(open) {
-    this.postFormOpen = open
-  }
+  
 
   getPosts() {
-    // this.postService.getPosts().then(posts => {
-    //  this.posts = posts
-    //})
+    this.postService.getPosts().then(posts => {
+      this.posts = posts
+    })
 
-    this.posts = this.postService.getPosts();
+
+    // this.posts = this.postService.getPosts();
   }
-
+/*
 
   createPost() {
     const post = {
       id: Date.now(),
-      title: 'Javier Sánchez',
-      subtitle: 'Madrid',
+      title: '{{user?.name}}',
+      subtitle: '{{user?.location}}',
       image: '../../../../assets/images/ducati.jpg',
       text: 'asfafdafdafda'
     }
     this.postService.addPost(post)
     this.getPosts()
-    this.setPostFormStatus(false)
   }
 
+*/
 }

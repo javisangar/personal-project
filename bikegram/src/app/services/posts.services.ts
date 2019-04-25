@@ -14,15 +14,15 @@ export class PostService {
 
   constructor(private httpClient: HttpClient) {
   }
-  getMatches(post) {
+  getPosts() {
     return this.httpClient.get(`${API}/api/v1/posts`).toPromise().then((posts: Array<PostsModel>) => posts);
   }
   addPost(post) {
-    return this.httpClient.post(`${API}/api/v1/post`, post).toPromise().then((posts: PostsModel)=> posts);
+    return this.httpClient.post(`${API}/api/v1/posts`, post).toPromise().then((posts: PostsModel)=> posts);
   }
    
   remove(id){
-    return this.httpClient.delete(`${API}/api/v1/post/${id}`).toPromise().then((posts: PostsModel)=> posts);
+    return this.httpClient.delete(`${API}/api/v1/posts/${id}`).toPromise().then((posts: PostsModel)=> posts);
   }
 
   edit(post){
