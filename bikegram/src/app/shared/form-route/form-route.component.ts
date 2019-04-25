@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.services';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { PostService } from 'src/app/services/posts.services';
+import { Router, ActivatedRoute } from "@angular/router";
+import { PostsModel } from '../../models/posts.model';
 
 @Component({
   selector: 'app-route',

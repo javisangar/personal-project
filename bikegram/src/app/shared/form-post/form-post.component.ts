@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
-
 import { PostService } from 'src/app/services/posts.services';
+import { Router, ActivatedRoute } from "@angular/router";
+import { PostsModel } from '../../models/posts.model';
 
 @Component({
   selector: 'app-form-post',
@@ -11,8 +12,13 @@ import { PostService } from 'src/app/services/posts.services';
 export class FormPostComponent implements OnInit {
   myForm: FormGroup;
   posts: Array<any>;
+  postModel: PostsModel;
+  showError = false;
 
-  constructor(private postService: PostService) { }
+  constructor(private fb: FormBuilder,
+    private postService: PostService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.myForm = new FormGroup({
@@ -31,6 +37,7 @@ export class FormPostComponent implements OnInit {
 
 
     // this.posts = this.postService.getPosts();
+
   }
 /*
 
@@ -47,4 +54,18 @@ export class FormPostComponent implements OnInit {
   }
 
 */
+
+createPost() {
+  if (this.myForm.valid) {
+    this.postService.addPost(this.myForm.value).then(
+      response => {
+        this.showError = false;
+        this.router.navigate(['home']);
+      },
+      err => {
+        this.showError = true;
+      }
+    );
+  }
+}
 }
