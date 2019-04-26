@@ -48,12 +48,13 @@ export class HomeComponent implements OnInit {
       this.sales = sales
     });
   }
-
+/* 
   removeSales(e, id){
     this.saleService.remove(id).then(sales=>{
       this.sales = sales
     });
   }
+*/
   setMapConfig() {
     this.lat = 40.407901;
     this.lng = -3.706990;
@@ -69,5 +70,25 @@ export class HomeComponent implements OnInit {
     this.origin = 'Albacete'
     this.destination = 'Ayna'
   }
+  
+  
+  deleteSale(event, sale) {
+    this.saleService.remove(sale).then(sales=>{
+      this.getSales();
+    });
+  }
 
+
+ deleteRoute(event, route) {
+    this.routeService.remove(route).then(routes=>{
+      this.getRoutes();
+    });
+  }
+  
+  deletePost(event, post) {
+    this.postService.remove(post).then(post=>{
+      this.getPosts();
+    });
+  }
+  
 }

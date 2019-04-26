@@ -109,7 +109,7 @@
       <mat-card-actions>
         <button mat-stroked-button color="primary"><a routerLink="/post/{{post.id}}">More Info</a></button>
         <button mat-button>Edit</button>
-        <button mat-button (click)="removePost($event, post)" color="warn">Delete</button>
+        <button mat-button (click)="deletePost($event, post._id)" color="warn">Delete</button>
       </mat-card-actions>
     </mat-card>
 
@@ -135,7 +135,7 @@
       <mat-card-actions>
         <button mat-stroked-button color="primary"><a routerLink="/route/{{route.id}}">More Info</a></button>
         <button mat-button>Edit</button>
-        <button mat-button color="warn" (click)="removeRoute($event, route)">Delete</button>
+        <button mat-button color="warn" (click)="deleteRoute($event, route._id)">Delete</button>
       </mat-card-actions>
     </mat-card>
 
@@ -158,7 +158,7 @@
       <mat-card-actions>
         <button mat-stroked-button color="primary"><a routerLink="/sale/{{sale.id}}">More Info</a></button>
         <button mat-button>Edit</button>
-        <button mat-button color="warn" (click)="removeSales($event, sale._id)">Delete</button>
+        <button mat-button color="warn" (click)="deleteSale($event, sale._id)">Delete</button>
       </mat-card-actions>
     </mat-card>
 

@@ -32,17 +32,17 @@ export class FormPostComponent implements OnInit {
 
   }
   
-
+/*
   getPosts() {
     this.postService.getPosts().then(posts => {
       this.posts = posts
     })
 
 
-    // this.posts = this.postService.getPosts();
+     this.posts = this.postService.getPosts();
 
   }
-/*
+
 
   createPost() {
     const post = {
@@ -71,4 +71,5 @@ createPost() {
     );
   }
 }
+
 }

@@ -4,30 +4,34 @@
 
     <mat-card>
       <h2>New Sale</h2>
-      <form>
-
-        <label for="image">
+      <form [formGroup]="myForm" novalidate="">
+        <!-- <label for="image">
           <input class="custom-file-input" type="file">
         </label>
-
+      -->
         <mat-form-field>
-          <input type="text" matInput placeholder="Brand & Model">
+          <input type="text" formControlName="image" matInput placeholder="url image" required>
         </mat-form-field>
 
         <mat-form-field>
-          <input type="number" matInput placeholder="Kilometers">
+          <input type="text" formControlName="brand" matInput placeholder="Brand & Model" required>
         </mat-form-field>
 
         <mat-form-field>
-          <input type="number" matInput placeholder="Price in €">
+          <input type="number" formControlName="kilometers" matInput placeholder="Kilometers" required>
         </mat-form-field>
 
         <mat-form-field>
-          <textarea matInput placeholder="Sale description"></textarea>
+          <input type="number" formControlName="price" matInput placeholder="Price in €" required>
+        </mat-form-field>
+
+        <mat-form-field>
+          <textarea matInput formControlName="description" placeholder="Sale description" required></textarea>
         </mat-form-field>
 
         <div class="sale__form-btn">
-          <button type="button" (click)=createSale() mat-raised-button color="primary">Create Sale</button>
+          <button type="button" (click)=createSale() [disabled]="!myForm.valid" mat-raised-button color="primary">Create
+            Sale</button>
           <button mat-raised-button routerLink="/home" type="button" color="warn">Close</button>
         </div>
       </form>
