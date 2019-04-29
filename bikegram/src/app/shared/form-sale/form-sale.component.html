@@ -10,28 +10,30 @@
         </label>
       -->
         <mat-form-field>
-          <input type="text" formControlName="image" matInput placeholder="url image" required>
+          <input type="text" formControlName="image" matInput placeholder="url image" value="{{sale.image}}" required>
         </mat-form-field>
 
         <mat-form-field>
-          <input type="text" formControlName="brand" matInput placeholder="Brand & Model" required>
+          <input type="text" formControlName="brand" matInput placeholder="Brand & Model" value="{{sale.brand}}" required>
         </mat-form-field>
 
         <mat-form-field>
-          <input type="number" formControlName="kilometers" matInput placeholder="Kilometers" required>
+          <input type="number" formControlName="kilometers" matInput placeholder="Kilometers" value="{{sale.kilometers}}" required>
         </mat-form-field>
 
         <mat-form-field>
-          <input type="number" formControlName="price" matInput placeholder="Price in €" required>
+          <input type="number" formControlName="price" matInput value="{{sale.price}}" placeholder="Price in €" required>
         </mat-form-field>
 
         <mat-form-field>
-          <textarea matInput formControlName="description" placeholder="Sale description" required></textarea>
+          <textarea matInput formControlName="description" value="{{sale.text}}" placeholder="Sale description" required></textarea>
         </mat-form-field>
 
         <div class="sale__form-btn">
           <button type="button" (click)=createSale() [disabled]="!myForm.valid" mat-raised-button color="primary">Create
             Sale</button>
+            <button type="button" (click)=editSale()  mat-raised-button color="primary">Edit
+                Sale</button>
           <button mat-raised-button routerLink="/home" type="button" color="warn">Close</button>
         </div>
       </form>

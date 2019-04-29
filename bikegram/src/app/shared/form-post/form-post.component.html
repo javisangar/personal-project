@@ -9,14 +9,15 @@
           <input class="custom-file-input" type="file">
         </label>
         <mat-form-field>
-          <textarea matInput formControlName="image" placeholder="Enter image url"></textarea>
+          <textarea matInput formControlName="image" value="{{post.image}}"placeholder="Enter image url"></textarea>
         </mat-form-field>
         <mat-form-field>
-          <textarea matInput formControlName="text" placeholder="Enter your post content"></textarea>
+          <textarea matInput formControlName="text" value="{{post.text}}" placeholder="Placeholder"></textarea>
         </mat-form-field>
 
         <div class="post__form-btn">
-          <button (click)=createPost() mat-raised-button color="primary">Create Post</button>
+          <button (click)=createPost() [disabled]="!myForm.valid" mat-raised-button color="primary">Create Post</button>
+          <button (click)=editPost()  mat-raised-button color="primary">Edit Post</button>
           <button routerLink="/home" mat-raised-button color="warn">Close</button>
         </div>
       </form>

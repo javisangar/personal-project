@@ -15,6 +15,8 @@ export class FormRouteComponent implements OnInit {
   routes: Array<any>;
   routesModel: RoutesModel;
   showError = false;
+  route: any = {};
+  id;
 
   user: any;
   lat: number;
@@ -45,6 +47,14 @@ export class FormRouteComponent implements OnInit {
       Validators.required
     ])
   });
+
+  this.activatedRoute.params.subscribe(res => {
+    this.id = res.id;
+    this.routeService.getRoute(res.id).then((route) => {
+     // this.myForm.text = post.text
+     this.route = route;
+    })
+  })
   }
 
   getUserLocation() {
@@ -59,6 +69,23 @@ export class FormRouteComponent implements OnInit {
   createRoute() {
     if (this.myForm.valid) {
       this.routeService.addRoute(this.myForm.value).then(
+        response => {
+          this.showError = false;
+          this.router.navigate(['home']);
+        },
+        err => {
+          this.showError = true;
+        }
+      );
+    }
+  }
+
+  editRoute(){
+    
+    if (this.myForm.valid) {
+      let val = this.myForm.value;
+      val._id = this.route._id;
+      this.routeService.edit(val).then(
         response => {
           this.showError = false;
           this.router.navigate(['home']);

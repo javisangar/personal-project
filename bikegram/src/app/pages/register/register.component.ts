@@ -28,6 +28,8 @@ export class RegisterComponent {
       ]),
       'name': new FormControl('', [
         Validators.required
+      ]),'location': new FormControl('', [
+        Validators.required
       ]),
       'password': new FormControl('', [
         Validators.required,
@@ -39,6 +41,11 @@ export class RegisterComponent {
   getErrorMessageName() {
     return this.myForm.controls.name.hasError('required') ? 'You must enter a valid name' :
       this.myForm.controls.name.hasError('name') ? 'Not a valid name' :
+        '';
+  }
+  getErrorMessageLocation() {
+    return this.myForm.controls.name.hasError('required') ? 'You must enter a valid location' :
+      this.myForm.controls.location.hasError('location') ? 'Not a valid location' :
         '';
   }
 

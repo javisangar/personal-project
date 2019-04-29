@@ -17,6 +17,9 @@ export class RouteService {
   getRoutes() {
     return this.httpClient.get(`${API}/api/v1/routes`).toPromise().then((routes: Array<RoutesModel>) => routes);
   }
+  getRoute(id) {
+    return this.httpClient.get(`${API}/api/v1/routes/${id}`).toPromise().then((routes:RoutesModel) => routes);
+  }
   addRoute(route) {
     return this.httpClient.post(`${API}/api/v1/routes`, route).toPromise().then((routes: RoutesModel)=> routes);
   }
@@ -26,7 +29,7 @@ export class RouteService {
   }
 
   edit(route){
-    return this.httpClient.put(`${API}/api/v1/routes/${route.id}`, route).toPromise().then((routes: RoutesModel)=> routes);
+    return this.httpClient.put(`${API}/api/v1/routes/${route._id}`, route).toPromise().then((routes: RoutesModel)=> routes);
   }
 
 }

@@ -33,11 +33,23 @@ const routes: Routes = [
     canActivate: [LoginGuard],
     component: FormPostComponent
   },{
+    path:'home/edit-post/:id',
+    canActivate: [LoginGuard],
+    component: FormPostComponent
+  },{
     path:'home/new-route',
     canActivate: [LoginGuard],
     component: FormRouteComponent
   },{
+    path:'home/edit-route/:id',
+    canActivate: [LoginGuard],
+    component: FormRouteComponent
+  },{
     path:'home/new-sale',
+    canActivate: [LoginGuard],
+    component: FormSaleComponent
+  },{
+    path:'home/edit-sale/:id',
     canActivate: [LoginGuard],
     component: FormSaleComponent
   },{

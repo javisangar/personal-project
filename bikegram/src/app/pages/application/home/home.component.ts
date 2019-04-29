@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PostService } from '../../../services/posts.services';
 import { RouteService } from '../../../services/routes.services';
 import { SaleService } from '../../../services/sales.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -17,18 +18,20 @@ export class HomeComponent implements OnInit {
   posts: any;
   routes: any;
   sales: any;
+  text: string;
+  image: string;
 
 
   
 
-  constructor(private postService: PostService,  private routeService: RouteService, private saleService: SaleService) { }
+  constructor(private postService: PostService,  private routeService: RouteService, private saleService: SaleService,
+    private _router: Router) { }
 
   ngOnInit() {
     this.getPosts();
     this.getRoutes();
     this.getSales();
     
-   
   }
 
   getPosts() {
@@ -48,13 +51,7 @@ export class HomeComponent implements OnInit {
       this.sales = sales
     });
   }
-/* 
-  removeSales(e, id){
-    this.saleService.remove(id).then(sales=>{
-      this.sales = sales
-    });
-  }
-*/
+
   setMapConfig() {
     this.lat = 40.407901;
     this.lng = -3.706990;
@@ -77,6 +74,11 @@ export class HomeComponent implements OnInit {
       this.getSales();
     });
   }
+  editSale(id){
+    
+    this._router.navigate(['home/edit-sale/',id]);
+    
+   }
 
 
  deleteRoute(event, route) {
@@ -84,11 +86,23 @@ export class HomeComponent implements OnInit {
       this.getRoutes();
     });
   }
+  editRoute(id){
+    
+    this._router.navigate(['home/edit-route/',id]);
+    
+   }
   
   deletePost(event, post) {
     this.postService.remove(post).then(post=>{
       this.getPosts();
     });
   }
+
   
+  editPost(id){
+    
+   this._router.navigate(['home/edit-post/',id]);
+
+  }
+
 }

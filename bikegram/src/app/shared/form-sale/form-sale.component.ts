@@ -16,9 +16,12 @@ export class FormSaleComponent implements OnInit {
   sales: Array<any>;
   postModel: PostsModel;
   showError = false;
+  sale: any = {};
+  id;
 
 
-  constructor(private saleService: SaleService,private fb: FormBuilder,
+  constructor(private saleService: SaleService,
+    private fb: FormBuilder,
     private router: Router,
     private activatedRoute: ActivatedRoute) { }
 
@@ -41,6 +44,14 @@ export class FormSaleComponent implements OnInit {
         Validators.required
       ])
     });
+    this.activatedRoute.params.subscribe(res => {
+      this.id = res.id;
+      this.saleService.getSale(res.id).then((sale) => {
+       this.sale = sale;
+
+      })
+
+    })
 
   }
 
@@ -55,6 +66,23 @@ export class FormSaleComponent implements OnInit {
 createSale() {
   if (this.myForm.valid) {
     this.saleService.addSale(this.myForm.value).then(
+      response => {
+        this.showError = false;
+        this.router.navigate(['home']);
+      },
+      err => {
+        this.showError = true;
+      }
+    );
+  }
+}
+
+editSale(){
+    
+  if (this.myForm.valid) {
+    let val = this.myForm.value;
+    val._id = this.sale._id;
+    this.saleService.edit(val).then(
       response => {
         this.showError = false;
         this.router.navigate(['home']);

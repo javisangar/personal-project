@@ -43,14 +43,17 @@
 
     .post-user {
 
-      .example-card {
-        max-width: 800px;
-        margin-bottom: 8px;
-      }
-
-      .example-header-image {
-        background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-        background-size: cover;
-      }
+      .post-card,
+    .route-card,
+    .sale-card {
+      max-width: 800px;
+      width: 100%;
+      margin-bottom: 8px;
+    }
+    
+  .header-image {
+    background-image: url('../../../../assets/images/profile-photo.jpg');
+    background-size: cover;
+  }
     }
   }

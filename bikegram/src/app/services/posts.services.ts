@@ -17,6 +17,9 @@ export class PostService {
   getPosts() {
     return this.httpClient.get(`${API}/api/v1/posts`).toPromise().then((posts: Array<PostsModel>) => posts);
   }
+  getPost(id) {
+    return this.httpClient.get(`${API}/api/v1/posts/${id}`).toPromise().then((post:PostsModel) => post);
+  }
   addPost(post) {
     return this.httpClient.post(`${API}/api/v1/posts`, post).toPromise().then((posts: PostsModel)=> posts);
   }
@@ -26,7 +29,7 @@ export class PostService {
   }
 
   edit(post){
-    return this.httpClient.put(`${API}/api/v1/posts/${post.id}`, post).toPromise().then((posts: PostsModel)=> posts);
+    return this.httpClient.put(`${API}/api/v1/posts/${post._id}`, post).toPromise().then((posts: PostsModel)=> posts);
   }
 
 }

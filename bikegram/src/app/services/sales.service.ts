@@ -17,6 +17,9 @@ export class SaleService {
   getSales() {
     return this.httpClient.get(`${API}/api/v1/sales`).toPromise().then((sales: Array<SalesModel>) => sales);
   }
+  getSale(id) {
+    return this.httpClient.get(`${API}/api/v1/sales/${id}`).toPromise().then((sales:SalesModel) => sales);
+  }
   addSale(sale) {
     return this.httpClient.post(`${API}/api/v1/sales`, sale).toPromise().then((sales: SalesModel)=> sales);
   }
@@ -25,8 +28,8 @@ export class SaleService {
     return this.httpClient.delete(`${API}/api/v1/sales/${id}`).toPromise().then((sales: SalesModel)=> sales);
   }
 
-  edit(post){
-    return this.httpClient.put(`${API}/api/v1/posts/${post.id}`, post).toPromise().then((sales: SalesModel)=> sales);
+  edit(sale){
+    return this.httpClient.put(`${API}/api/v1/sales/${sale._id}`, sale).toPromise().then((sales: SalesModel)=> sales);
   }
 
 }

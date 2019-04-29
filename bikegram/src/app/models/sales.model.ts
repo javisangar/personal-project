@@ -1,5 +1,5 @@
 export class SalesModel {
-    id: number;
+    _id: number;
     name: string;
     location: string;
     image: string;
