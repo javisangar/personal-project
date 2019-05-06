@@ -49,6 +49,16 @@
       max-width: 800px;
       width: 100%;
       margin-bottom: 8px;
+      a{
+        text-decoration: none;
+        color: black;
+      }
+      .secondUser{
+        border-radius: 50%;
+      }
+      .description{
+        margin-top: 12px;
+      }  
     }
     
   .header-image {

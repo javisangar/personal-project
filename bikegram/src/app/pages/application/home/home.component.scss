@@ -26,15 +26,30 @@
       max-width: 800px;
       width: 100%;
       margin-bottom: 8px;
+      
+      a{
+        text-decoration: none;
+        color: black;
+      }
+      
+      .secondUser{
+        border-radius: 50%;
+      }
+      .description{
+        margin-top: 12px;
+      }  
     }
-
+    
   }
 
   .header-image {
     background-image: url('../../../../assets/images/profile-photo.jpg');
     background-size: cover;
   }
-
+  .descriptionRoute{
+    margin-top: 12px;
+  }
+ 
 }
 
 .searchTool {
@@ -279,6 +294,7 @@
   .custom-file-input:active::before {
     background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
   }
+  
 }
 
 agm-map {

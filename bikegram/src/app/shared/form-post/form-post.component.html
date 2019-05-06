@@ -3,7 +3,8 @@
   <div class="post__form">
 
     <mat-card>
-      <h2>New Post</h2>
+        <h2 *ngIf= "!this.post._id">New Post</h2>
+        <h2 *ngIf= "this.post._id">Edit Post</h2>
       <form [formGroup]="myForm">
         <label for="image">
           <input class="custom-file-input" type="file">
@@ -12,12 +13,12 @@
           <textarea matInput formControlName="image" value="{{post.image}}"placeholder="Enter image url"></textarea>
         </mat-form-field>
         <mat-form-field>
-          <textarea matInput formControlName="text" value="{{post.text}}" placeholder="Placeholder"></textarea>
+          <textarea matInput formControlName="text" value="{{post.text}}" placeholder="Enter description"></textarea>
         </mat-form-field>
 
         <div class="post__form-btn">
-          <button (click)=createPost() [disabled]="!myForm.valid" mat-raised-button color="primary">Create Post</button>
-          <button (click)=editPost()  mat-raised-button color="primary">Edit Post</button>
+          <button (click)=createPost() [disabled]="!myForm.valid" mat-raised-button color="primary" *ngIf= "!this.post._id">Create Post</button>
+          <button (click)=editPost()  mat-raised-button color="primary" *ngIf= "this.post._id">Edit Post</button>
           <button routerLink="/home" mat-raised-button color="warn">Close</button>
         </div>
       </form>

@@ -25,8 +25,8 @@
       <mat-card class="post-card" *ngFor="let post of posts">
         <mat-card-header>
           <div mat-card-avatar class="header-image"></div>
-          <mat-card-title>{{post.name}}</mat-card-title>
-          <mat-card-subtitle>{{post.location}}</mat-card-subtitle>
+          <mat-card-title>Javier Sánchez</mat-card-title>
+          <mat-card-subtitle>Madrid</mat-card-subtitle>
         </mat-card-header>
         <img mat-card-image [src]="post.image">
         <mat-card-content>
@@ -45,8 +45,8 @@
       <mat-card class="route-card" *ngFor=" let route of routes">
         <mat-card-header>
           <div mat-card-avatar class="header-image"></div>
-          <mat-card-title>{{route.name}}</mat-card-title>
-          <mat-card-subtitle>{{route.location}}</mat-card-subtitle>
+          <mat-card-title>Javier Sánchez</mat-card-title>
+          <mat-card-subtitle>Madrid</mat-card-subtitle>
   
         </mat-card-header>
         <div class="route-card__map">
@@ -70,8 +70,8 @@
       <mat-card class="sale-card" *ngFor="let sale of sales">
         <mat-card-header>
           <div mat-card-avatar class="header-image"></div>
-          <mat-card-title>{{sale.name}}</mat-card-title>
-          <mat-card-subtitle>{{sale.location}}</mat-card-subtitle>
+          <mat-card-title>Javier Sánchez</mat-card-title>
+          <mat-card-subtitle>Madrid</mat-card-subtitle>
         </mat-card-header>
   
         <img mat-card-image [src]="sale.image">
@@ -79,9 +79,7 @@
           <p>{{sale.brand}}</p>
           <p>{{sale.kilometers}} km</p>
           <p>Precio:{{sale.price}} €</p>
-          <p>
-            {{sale.text}}
-          </p>
+          <p>{{sale.text}}</p>
         </mat-card-content>
         <mat-card-actions>
           <button mat-stroked-button color="primary"><a routerLink="/sale/{{sale.id}}">More Info</a></button>

@@ -40,7 +40,7 @@ export class FormSaleComponent implements OnInit {
       'price': new FormControl('', [
         Validators.required
       ]),
-      'description': new FormControl('', [
+      'text': new FormControl('', [
         Validators.required
       ])
     });

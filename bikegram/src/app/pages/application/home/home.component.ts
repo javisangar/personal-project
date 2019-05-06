@@ -31,6 +31,7 @@ export class HomeComponent implements OnInit {
     this.getPosts();
     this.getRoutes();
     this.getSales();
+    this.setMapConfig()
     
   }
 
@@ -64,8 +65,8 @@ export class HomeComponent implements OnInit {
       lng: - 4.21875
     }
     
-    this.origin = 'Albacete'
-    this.destination = 'Ayna'
+    this.origin = 'Madrid'
+    this.destination = 'Segovia'
   }
   
   

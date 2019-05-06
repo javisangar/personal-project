@@ -3,7 +3,8 @@
   <div class="sale__form">
 
     <mat-card>
-      <h2>New Sale</h2>
+      <h2 *ngIf= "!this.sale._id">New Sale</h2>
+      <h2 *ngIf= "this.sale._id">Edit Sale</h2>
       <form [formGroup]="myForm" novalidate="">
         <!-- <label for="image">
           <input class="custom-file-input" type="file">
@@ -26,13 +27,13 @@
         </mat-form-field>
 
         <mat-form-field>
-          <textarea matInput formControlName="description" value="{{sale.text}}" placeholder="Sale description" required></textarea>
+          <textarea matInput formControlName="text" value="{{sale.text}}" placeholder="Sale description" required></textarea>
         </mat-form-field>
 
         <div class="sale__form-btn">
-          <button type="button" (click)=createSale() [disabled]="!myForm.valid" mat-raised-button color="primary">Create
+          <button type="button" (click)=createSale() [disabled]="!myForm.valid" *ngIf= "!this.sale._id" mat-raised-button color="primary">Create
             Sale</button>
-            <button type="button" (click)=editSale()  mat-raised-button color="primary">Edit
+            <button type="button" (click)=editSale() *ngIf= "this.sale._id"  mat-raised-button color="primary">Edit
                 Sale</button>
           <button mat-raised-button routerLink="/home" type="button" color="warn">Close</button>
         </div>
