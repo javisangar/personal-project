@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  
+
   lat: number;
   lng: number;
   origin: any;
@@ -22,9 +22,9 @@ export class HomeComponent implements OnInit {
   image: string;
 
 
-  
 
-  constructor(private postService: PostService,  private routeService: RouteService, private saleService: SaleService,
+
+  constructor(private postService: PostService, private routeService: RouteService, private saleService: SaleService,
     private _router: Router) { }
 
   ngOnInit() {
@@ -32,23 +32,23 @@ export class HomeComponent implements OnInit {
     this.getRoutes();
     this.getSales();
     this.setMapConfig()
-    
+
   }
 
   getPosts() {
-    this.postService.getPosts().then(posts=>{
+    this.postService.getPosts().then(posts => {
       this.posts = posts
     });
   }
 
   getRoutes() {
-    this.routeService.getRoutes().then(routes=>{
+    this.routeService.getRoutes().then(routes => {
       this.routes = routes
     });
   }
 
   getSales() {
-    this.saleService.getSales().then(sales=>{
+    this.saleService.getSales().then(sales => {
       this.sales = sales
     });
   }
@@ -64,45 +64,62 @@ export class HomeComponent implements OnInit {
       lat: 41.27780646738183,
       lng: - 4.21875
     }
-    
+
     this.origin = 'Madrid'
     this.destination = 'Segovia'
   }
-  
-  
+
+
   deleteSale(event, sale) {
-    this.saleService.remove(sale).then(sales=>{
-      this.getSales();
-    });
+    let message = window.confirm('Caution! You have deleted the sale definitely');
+    if (message === true) {
+      this.saleService.remove(sale).then(sales => {
+        this.getSales();
+      });
+    } else {
+      return;
+    }
   }
-  editSale(id){
-    
-    this._router.navigate(['home/edit-sale/',id]);
-    
-   }
+  editSale(id) {
+
+    this._router.navigate(['home/edit-sale/', id]);
+
+  }
 
 
- deleteRoute(event, route) {
-    this.routeService.remove(route).then(routes=>{
-      this.getRoutes();
-    });
+  deleteRoute(event, route) {
+    let message = window.confirm('Caution! You have deleted the route definitely');
+    if (message === true) {
+      this.routeService.remove(route).then(routes => {
+        this.getRoutes();
+      });
+    } else {
+      return;
+    }
   }
-  editRoute(id){
-    
-    this._router.navigate(['home/edit-route/',id]);
-    
-   }
-  
+  editRoute(id) {
+
+    this._router.navigate(['home/edit-route/', id]);
+
+  }
+
   deletePost(event, post) {
-    this.postService.remove(post).then(post=>{
-      this.getPosts();
-    });
+    let message = window.confirm('Caution! You have deleted the post definitely');
+    if (message === true) {
+      this.postService.remove(post).then(post => {
+        this.getPosts();
+
+      });
+
+    } else {
+      return;
+    }
   }
 
-  
-  editPost(id){
-    
-   this._router.navigate(['home/edit-post/',id]);
+
+  editPost(id) {
+
+    this._router.navigate(['home/edit-post/', id]);
 
   }
 
