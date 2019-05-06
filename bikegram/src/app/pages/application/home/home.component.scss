@@ -77,11 +77,17 @@
   justify-content: center;
 
   .new__post-icon, .new__route-icon, .new__sale-icon {
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
     position: relative;
     fill: #fff;
   }
+   .new__sale-icon{
+    width: 33px;
+    height: 33px;
+    position: relative;
+    fill: #fff;
+   }
   
 
   button {

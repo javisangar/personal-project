@@ -16,6 +16,10 @@
     width: 100%;
     height: 100vh;
     color: #fff; 
+
+    mat-form-field{
+      width: 100%;
+    }
   
     mat-card {
       background-color: $form-card-color;
