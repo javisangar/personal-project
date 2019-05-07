@@ -44,26 +44,34 @@
     .post-user {
 
       .post-card,
-    .route-card,
-    .sale-card {
-      max-width: 800px;
-      width: 100%;
-      margin-bottom: 8px;
-      a{
-        text-decoration: none;
-        color: black;
+      .route-card,
+      .sale-card {
+        max-width: 800px;
+        width: 100%;
+        margin-bottom: 8px;
+
+        a {
+          text-decoration: none;
+          color: black;
+        }
+
+        .secondUser {
+          border-radius: 50%;
+        }
+
+        .description {
+          margin-top: 12px;
+        }
       }
-      .secondUser{
-        border-radius: 50%;
+
+      .header-image {
+        background-image: url('../../../../assets/images/profile-photo.jpg');
+        background-size: cover;
       }
-      .description{
-        margin-top: 12px;
-      }  
     }
-    
-  .header-image {
-    background-image: url('../../../../assets/images/profile-photo.jpg');
-    background-size: cover;
-  }
+
+    agm-map {
+      height: 200px;
+      width: 100%;
     }
   }

@@ -17,7 +17,7 @@
     </div>
   
     <div class="post-info">
-      <p class="post-info__title"><u>POSTS</u></p>
+      <p class="post-info__title"><u></u></p>
     </div>
 
     <div class="post-user">
@@ -35,7 +35,6 @@
           </p>
         </mat-card-content>
         <mat-card-actions>
-          <button mat-stroked-button color="primary"><a routerLink="/post/{{post.id}}">More Info</a></button>
           <button mat-button (click)="editPost(post._id)">Edit</button>
           <button mat-button (click)="deletePost($event, post._id)" color="warn">Delete</button>
         </mat-card-actions>
@@ -61,8 +60,6 @@
           </p>
         </mat-card-content>
         <mat-card-actions>
-          <button mat-stroked-button color="primary"><a routerLink="/route/{{route.id}}">More Info</a></button>
-          <button mat-button (click)="editRoute(route._id)">Edit</button>
           <button mat-button color="warn" (click)="deleteRoute($event, route._id)">Delete</button>
         </mat-card-actions>
       </mat-card>
@@ -82,7 +79,6 @@
           <p>{{sale.text}}</p>
         </mat-card-content>
         <mat-card-actions>
-          <button mat-stroked-button color="primary"><a routerLink="/sale/{{sale.id}}">More Info</a></button>
           <button mat-button (click)="editSale(sale._id)">Edit</button>
           <button mat-button color="warn" (click)="deleteSale($event, sale._id)">Delete</button>
         </mat-card-actions>

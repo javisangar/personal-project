@@ -22,8 +22,6 @@ export class HomeComponent implements OnInit {
   image: string;
 
 
-
-
   constructor(private postService: PostService, private routeService: RouteService, private saleService: SaleService,
     private _router: Router) { }
 
@@ -71,7 +69,7 @@ export class HomeComponent implements OnInit {
 
 
   deleteSale(event, sale) {
-    let message = window.confirm('Caution! You have deleted the sale definitely');
+    let message = window.confirm('Attention! You are going to delete this sale permanently');
     if (message === true) {
       this.saleService.remove(sale).then(sales => {
         this.getSales();
@@ -86,9 +84,8 @@ export class HomeComponent implements OnInit {
 
   }
 
-
   deleteRoute(event, route) {
-    let message = window.confirm('Caution! You have deleted the route definitely');
+    let message = window.confirm('Attention! You are going to delete this route permanently');
     if (message === true) {
       this.routeService.remove(route).then(routes => {
         this.getRoutes();
@@ -104,7 +101,7 @@ export class HomeComponent implements OnInit {
   }
 
   deletePost(event, post) {
-    let message = window.confirm('Caution! You have deleted the post definitely');
+    let message = window.confirm('Attention! You are going to delete this post permanently');
     if (message === true) {
       this.postService.remove(post).then(post => {
         this.getPosts();
@@ -116,11 +113,9 @@ export class HomeComponent implements OnInit {
     }
   }
 
-
   editPost(id) {
 
     this._router.navigate(['home/edit-post/', id]);
 
   }
-
 }
