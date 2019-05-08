@@ -105,7 +105,7 @@
       <mat-card-header>
         <div mat-card-avatar class="header-image"></div>
         <mat-card-title><a routerLink="/profile">Javier Sánchez</a></mat-card-title>
-        <mat-card-subtitle>Madrid - {{sale.createdAt | date:'shortTime'}}</mat-card-subtitle>
+        <mat-card-subtitle>Madrid - {{sale.createdAt | date:'medium'}}</mat-card-subtitle>
       </mat-card-header>
 
       <img mat-card-image [src]="sale.image">
@@ -118,7 +118,6 @@
         </p>
       </mat-card-content>
       <mat-card-actions>
-       <!-- <button mat-stroked-button color="primary"><a routerLink="/sale/{{sale.id}}">More Info</a></button>-->
         <button mat-button (click)="editSale(sale._id)">Edit</button>
         <button mat-button color="warn" (click)="deleteSale($event, sale._id)">Delete</button>
       </mat-card-actions>
@@ -128,7 +127,7 @@
         <mat-card-header>
           <div mat-card-avatar class="header-image"></div>
           <mat-card-title><a routerLink="/profile">Javier Sánchez</a></mat-card-title>
-          <mat-card-subtitle>Madrid - {{route.createdAt | date:'shortTime'}}</mat-card-subtitle>
+          <mat-card-subtitle>Madrid - {{route.createdAt | date:'medium'}}</mat-card-subtitle>
   
         </mat-card-header>
         <div class="route-card__map">
@@ -153,7 +152,7 @@
         <mat-card-header>
           <div mat-card-avatar class="header-image"></div>
           <mat-card-title><a routerLink="/profile">Javier Sánchez</a></mat-card-title>
-          <mat-card-subtitle>Madrid - {{post.createdAt | date:'shortTime'}}</mat-card-subtitle>
+          <mat-card-subtitle>Madrid - {{post.createdAt | date:'medium'}}</mat-card-subtitle>
         </mat-card-header>
         <img mat-card-image [src]="post.image">
         <mat-card-content>
@@ -171,17 +170,17 @@
     <mat-card class="post-card">
       <mat-card-header>
         <div mat-card-avatar>
-          <img class="secondUser" src="https://www.pontgrup.com/blog/wp-content/uploads/2018/04/diccionario-motero.jpg"
+          <img class="secondUser" src="https://66.media.tumblr.com/038583f2e5e4f74a3f51dcc7a6a2bcf5/tumblr_inline_o3vn3cWIjR1tn8nre_500.jpg"
             width="40px" height="40px">
         </div>
-        <mat-card-title>Jose Luis</mat-card-title>
-        <mat-card-subtitle>Madrid - 12:01 PM</mat-card-subtitle>
+        <mat-card-title>Raúl Requero</mat-card-title>
+        <mat-card-subtitle>Madrid - May 8, 2019, 10:48:32 AM</mat-card-subtitle>
       </mat-card-header>
       <img mat-card-image
         src="https://psmfirestorm.blob.core.windows.net/crs-images/244128/16572/original.jpg">
       <mat-card-content>
         <p>
-          La salida del Sábado
+          Una fotillo de la salida del Sábado pasado 👍 .
         </p>
       </mat-card-content>
     </mat-card>
@@ -189,11 +188,11 @@
     <mat-card class="route-card">
       <mat-card-header>
         <div mat-card-avatar>
-          <img class="secondUser" src="https://www.pontgrup.com/blog/wp-content/uploads/2018/04/diccionario-motero.jpg"
+          <img class="secondUser" src="https://66.media.tumblr.com/038583f2e5e4f74a3f51dcc7a6a2bcf5/tumblr_inline_o3vn3cWIjR1tn8nre_500.jpg"
             width="40px" height="40px">
         </div>
-        <mat-card-title>Jose Luis</mat-card-title>
-        <mat-card-subtitle>Madrid - 11:52 PM</mat-card-subtitle>
+        <mat-card-title>Raúl Requero</mat-card-title>
+        <mat-card-subtitle>Madrid - May 8, 2019, 09:40:02 AM</mat-card-subtitle>
 
       </mat-card-header>
       <div class="route-card__map">
@@ -204,7 +203,7 @@
       </div>
       <mat-card-content>
         <p class="description">
-          Ruta el Domingo 12 de Mayo hasta Segovia
+          Ruta el Domingo 12 de Mayo a las 9:00 hasta Segovia para almorzar 😋 y pasarlo bien.
         </p>
       </mat-card-content>
     </mat-card>

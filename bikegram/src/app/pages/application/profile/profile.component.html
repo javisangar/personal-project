@@ -26,7 +26,7 @@
         <mat-card-header>
           <div mat-card-avatar class="header-image"></div>
           <mat-card-title>Javier Sánchez</mat-card-title>
-          <mat-card-subtitle>Madrid</mat-card-subtitle>
+          <mat-card-subtitle>Madrid - {{post.createdAt | date:'medium'}}</mat-card-subtitle>
         </mat-card-header>
         <img mat-card-image [src]="post.image">
         <mat-card-content>
@@ -45,7 +45,7 @@
         <mat-card-header>
           <div mat-card-avatar class="header-image"></div>
           <mat-card-title>Javier Sánchez</mat-card-title>
-          <mat-card-subtitle>Madrid</mat-card-subtitle>
+          <mat-card-subtitle>Madrid - {{route.createdAt | date:'medium'}}</mat-card-subtitle>
   
         </mat-card-header>
         <div class="route-card__map">
@@ -68,7 +68,7 @@
         <mat-card-header>
           <div mat-card-avatar class="header-image"></div>
           <mat-card-title>Javier Sánchez</mat-card-title>
-          <mat-card-subtitle>Madrid</mat-card-subtitle>
+          <mat-card-subtitle>Madrid - {{sale.createdAt | date:'medium'}}</mat-card-subtitle>
         </mat-card-header>
   
         <img mat-card-image [src]="sale.image">
