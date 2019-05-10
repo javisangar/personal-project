@@ -69,7 +69,7 @@ import { AgmDirectionModule } from 'agm-direction';
     MatSelectModule,
     HttpClientModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyB3GKuRgLEvf0oq5RFUq1GwD1LM7urmBoc'
+      apiKey: '**********'
     }),
     AgmDirectionModule
   ],
